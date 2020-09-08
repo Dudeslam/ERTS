@@ -1,0 +1,14 @@
+﻿  Assignment1.cpp
+  Unknown compiler version - please run the configure tests and report the results
+c:\users\trung\source\repos\assignment1\assignment1\singlemod.h(7): error C2440: 'static_cast': cannot convert from 'void (__thiscall SingleMod::* )(sc_dt::sc_uint<4>)' to 'sc_core::SC_ENTRY_FUNC'
+  c:\users\trung\source\repos\assignment1\assignment1\singlemod.h(7): note: Cast from base to derived requires dynamic_cast or static_cast
+c:\users\trung\source\repos\assignment1\assignment1\singlemod.h(7): error C2660: 'sc_core::sc_simcontext::create_thread_process': function does not take 4 arguments
+  c:\users\trung\documents\erts\systemc-2.3.3\src\sysc\kernel\sc_simcontext.h(247): note: see declaration of 'sc_core::sc_simcontext::create_thread_process'
+  DoubleMod.cpp
+  SingleMod.cpp
+  Unknown compiler version - please run the configure tests and report the results
+c:\users\trung\source\repos\assignment1\assignment1\singlemod.h(7): error C2440: 'static_cast': cannot convert from 'void (__thiscall SingleMod::* )(sc_dt::sc_uint<4>)' to 'sc_core::SC_ENTRY_FUNC'
+  c:\users\trung\source\repos\assignment1\assignment1\singlemod.h(7): note: Cast from base to derived requires dynamic_cast or static_cast
+c:\users\trung\source\repos\assignment1\assignment1\singlemod.h(7): error C2660: 'sc_core::sc_simcontext::create_thread_process': function does not take 4 arguments
+  c:\users\trung\documents\erts\systemc-2.3.3\src\sysc\kernel\sc_simcontext.h(247): note: see declaration of 'sc_core::sc_simcontext::create_thread_process'
+  Generating Code...
