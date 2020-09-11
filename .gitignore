@@ -47,8 +47,6 @@ Makefile.in
 # ignore MSVC build files
 *.suo
 *.ncb
-*.vcproj.*
-*.vcxproj.*
 *.old
 *.tmp
 *.sdf
