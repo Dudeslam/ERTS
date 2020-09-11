@@ -18,17 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ModuleSingle.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1cdf1bc6-a764-42c6-a679-f5267c7a8efd}</ProjectGuid>
-    <RootNamespace>Exercise_3_1</RootNamespace>
+    <ProjectGuid>{0581b2cf-c438-43d0-b9f6-6d274ab94574}</ProjectGuid>
+    <RootNamespace>Exercise3_3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

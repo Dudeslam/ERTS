@@ -40,12 +40,14 @@ SC_MODULE(ModuleDouble) {
         counter++;
     	if (alternator == true)
     	{
+            Back.notify();
             cout << name() << " notified by event B at timestamp: " << sc_time_stamp() << endl;
             next_trigger(A);
             alternator = false;
     	}
         else
         {
+            Aack.notify();
             cout << name() << " notified by event A at timestamp: " << sc_time_stamp() << endl;
             next_trigger(B);
             alternator = true;
