@@ -10,12 +10,11 @@ SC_MODULE(Consumer) {
     SC_CTOR(Consumer) {
         SC_THREAD(consumer_thread);
     }
-    void consumer_thread(void)
-    {
-        while(1)
-        {
+    void consumer_thread(void){
+        while(1){
             TCPcons = tcp_in->read();
-            std::cout << name() << " received TCP package with sequence number: " << TCPcons->SequenceNumber << " at timestamp: " << sc_time_stamp() << std::endl;
+            std::cout << name() << " received TCP package with sequence number: " << TCPcons->SequenceNumber <<
+                " at timestamp: " << sc_time_stamp() << std::endl;
         }
     }
 };
