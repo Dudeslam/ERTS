@@ -1,28 +1,23 @@
 #include <iostream>
-using namespace std;
 #include <systemc.h>
 #include "TCPHeader.h"
 
-template <class T>
 SC_MODULE(Consumer) {
 
-    sc_fifo_in_if<TCPHeader> tcp_in;
+    sc_fifo_in<TCPHeader* > tcp_in;
+    TCPHeader* TCPcons = new TCPHeader;
 
     SC_CTOR(Consumer) {
         SC_THREAD(consumer_thread);
     }
     void consumer_thread(void)
     {
-        T sample;
-
-        while(1)
+        while (1)
         {
-
+            TCPcons = tcp_in->read();
+            std::cout << name() << " received TCP package with sequence number: " << TCPcons->SequenceNumber << " at timestamp: " << sc_time_stamp() << std::endl;
         }
     }
-    void print_consumer(void)
-    {
-        cout << tcp_in << endl;
-    }
 };
+
 

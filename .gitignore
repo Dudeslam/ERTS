@@ -9,6 +9,7 @@
 *.Plo
 *.so
 
+
 # ignore autoconf files
 /aclocal.m4
 /autom4te.cache/
@@ -53,6 +54,9 @@ Makefile.in
 *.XML
 *.opensdf
 *.db
+*.vcproj.*
+*.vcxproj.*
+*.vcxproj
 
 .vs/
 ipch/
