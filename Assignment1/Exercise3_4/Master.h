@@ -10,18 +10,21 @@ public:
 
 	// Ports
 	sc_in<bool> Slave_ready;
-	sc_fifo_out<sc_uint<DATA_BITS> >  out_data;
-	sc_out<bool> data_inc;
-	sc_out<sc_uint<DATA_BITS>> Filling;
+	sc_out<bool> data_valid;
+	
+	
+	sc_out<sc_uint<DATA_BITS>> DataHolder;
+	sc_out<sc_uint<CHANNEL_BITS> > channel;
+	sc_out<sc_uint<ERROR_BITS> > error;
 
 	SC_CTOR(Master)
 	{
 		SC_THREAD(SendD);
 	}
-	void SendD();
+	
 
 private:
-
+	void SendD();
 };
 
 

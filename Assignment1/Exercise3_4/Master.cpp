@@ -3,35 +3,43 @@
 void Master::SendD()
 {
 	//show initiating
-	cout << "Started Thread @:" << sc_time_stamp << endl;
-
+	cout << "Started Master Thread @:" << sc_time_stamp() << endl;
 	//Databuffer to send
-	sc_uint<DATA_BITS> TheD[] = { 2, 4, 6, 8, 10, 12, 14, 16};
-
-
-	//wait for clock
-	wait(CLK_PERIODE, SC_NS);
+	sc_uint<DATA_BITS> TheD[] = { 2,4,8,16,32 };
+	/*int sizbuff = sizeof(TheD) / sizeof(*TheD);*/
+	int i = 0;
 	
 	while (1)
 	{
-		while (Slave_ready==false)
-		{
+
+			//wait for slave
+			while (Slave_ready.read() == false)
+			{
+				wait(CLK.posedge_event());
+			}
+
+			//write to slave data_valid
 			wait(CLK.posedge_event());
-		}
 
+		//send data buffer
+			cout << "Sending the Data " << TheD[i] << " at " << sc_time_stamp() << endl;
+			DataHolder.write(TheD[i++ % 5]);
+			channel.write(0); // Channel number
+			error.write(0);   // Error
 
-	//send data buffer
-		cout << "Writing the data" << TheD << " at" << sc_time_stamp << endl;
-		for (int i = 0; i = sizeof(TheD); i++)
-		{
-			Filling.write(TheD[i]);
-		}
+			//signal valid new data
+			data_valid.write(true);
 
+			wait(CLK.posedge_event());
+
+			data_valid.write(false);
+
+			//wait one clock cycle
+			wait(CLK.posedge_event());
+			//if (i == sizbuff)
+			//{
+			//	return;
+			//}
 	}
-
-
-	//send sink signal
-
-
 
 }

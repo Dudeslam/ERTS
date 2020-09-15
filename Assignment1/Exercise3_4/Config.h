@@ -5,6 +5,3 @@
 #define CLK_PERIODE 20 // ns
 
 
-//files for master and slave
-#define INPUT_FILE_A	"in_data_arch.txt"		// Input data file (Fixed point)
-#define OUTPUT_FILE_A	"out_data_arch.txt"		// Output data file architechture level (Fixed point)

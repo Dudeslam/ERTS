@@ -6,19 +6,16 @@
 
 void Slave::RetrieveD()
 {
-	//Create file
-	fileExists();
-	cout << "Creating File" << endl;
-	createFile();
+	cout << "Started Slave Thread @ " << sc_time_stamp() << endl;
 
 	while (1)
 	{
-		cout << "Signal Slave is ready " << sc_time_stamp << endl;
-		//send ready signal
+		
+		//send slave ready signal
 		Slave_ready.write(true);
 
 		//wait for data
-		while (data_inc == false)
+		while (data_valid.read() == false)
 		{
 			wait(CLK.posedge_event());
 		}
@@ -27,21 +24,22 @@ void Slave::RetrieveD()
 		Slave_ready.write(false);
 
 		//read data
-		FillMeUp = data_inc.read();
-		
+		sc_uint<DATA_BITS> FillMe = DataHolder.read();
+		cout << "Received: " << FillMe << " at: " << sc_time_stamp() << endl;
+
 		//save to file
-		SavetoFile(FillMeUp);
+		SavetoFile(FillMe);
 
 		//wait a clockcycle
 		wait(CLK.posedge_event());
-
 	}
 }
 
 
 void Slave::SavetoFile(sc_uint<DATA_BITS> packet)
 {
-	std::ofstream outFile(FileName);
+	std::ofstream outFile;
+	outFile.open(FileName, std::ofstream::out | std::ofstream::app);
 	outFile << packet << endl;
 	outFile.close();
 }

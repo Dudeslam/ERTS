@@ -3,6 +3,7 @@
 #include "Config.h"
 #include <iostream>
 #include <fstream>
+#include <time.h>
 
 
 //check if ready
@@ -16,27 +17,35 @@ public:
 	
 	// Acknowledge data ready 
 	sc_out<bool>  Slave_ready;
-	sc_in<bool>	data_inc;
-
+	sc_in<bool>	data_valid;
+	sc_in<sc_uint<DATA_BITS>> DataHolder;
+	sc_in<sc_uint<ERROR_BITS > > error;
+	sc_in<sc_uint<CHANNEL_BITS > > channel;
 	// Input data port
-	sc_uint<DATA_BITS> FillMeUp;
+	
 
 	// File Thingy
 	const char* FileName = "3.4_OutputFile.txt";
 
 	SC_CTOR(Slave)
 	{
+		//delete in case already exists
+		fileExists();
+		//create new file
+		createFile();
 		SC_THREAD(RetrieveD);
 
 	}
 
 private:
-	//gain entry
+	
 	void RetrieveD();
 
 	void createFile()
 	{
 		std::ofstream outfile(FileName);
+		outfile << "Databits saved: " << endl;
+		cout << "File succesfully Created"  << endl;
 	}
 	void fileExists()
 	{
