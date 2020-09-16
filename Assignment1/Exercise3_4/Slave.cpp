@@ -14,9 +14,8 @@ void Slave::RetrieveD()
 		//send slave ready signal
 		Slave_ready.write(true);
 
-		//wait for data
-		while (data_valid.read() == false)
-		{
+		//wait for data_valid
+		while (data_valid.read() == false){
 			wait(CLK.posedge_event());
 		}
 

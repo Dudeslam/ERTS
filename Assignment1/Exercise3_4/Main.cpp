@@ -8,7 +8,7 @@
 int sc_main(int argc, char** argv)
 {
     Top top("Top-Level");
-    sc_start(200, SC_MS);
+    sc_start(300, SC_NS);
     cout << "Finished" << endl;
     return 0;
 }
