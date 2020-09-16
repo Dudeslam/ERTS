@@ -1,5 +1,5 @@
 $date
-     Sep 16, 2020       16:10:39
+     Sep 16, 2020       16:40:29
 $end
 
 $version
@@ -17,6 +17,7 @@ $var wire    1  aaaac  Data_Valid       $end
 $var wire   16  aaaad  data [15:0]  $end
 $var wire    2  aaaae  error [1:0]  $end
 $var wire    4  aaaaf  channel [3:0]  $end
+$var wire    1  aaaag  reset       $end
 $upscope $end
 $enddefinitions  $end
 
@@ -26,11 +27,12 @@ $end
 
 $dumpvars
 1aaaaa
-1aaaab
+0aaaab
 1aaaac
-b10 aaaad
+b0 aaaad
 b0 aaaae
 b0 aaaaf
+0aaaag
 $end
 
 #10
@@ -38,7 +40,6 @@ $end
 
 #20
 1aaaaa
-0aaaab
 0aaaac
 
 #30
@@ -53,31 +54,31 @@ $end
 
 #60
 1aaaaa
-1aaaac
-b100 aaaad
 
 #70
 0aaaaa
 
 #80
 1aaaaa
-0aaaab
-0aaaac
+1aaaac
+b100000 aaaad
 
 #90
 0aaaaa
 
 #100
 1aaaaa
-1aaaab
+0aaaab
+0aaaac
 
 #110
 0aaaaa
 
 #120
 1aaaaa
+1aaaab
 1aaaac
-b1000 aaaad
+b1000000 aaaad
 
 #130
 0aaaaa
@@ -93,37 +94,42 @@ b1000 aaaad
 #160
 1aaaaa
 1aaaab
+1aaaac
+b1100000 aaaad
 
 #170
 0aaaaa
 
 #180
 1aaaaa
-1aaaac
-b10000 aaaad
+0aaaab
+0aaaac
 
 #190
 0aaaaa
 
 #200
 1aaaaa
-0aaaab
-0aaaac
+1aaaab
+1aaaac
+b10000000 aaaad
 
 #210
 0aaaaa
 
 #220
 1aaaaa
-1aaaab
+0aaaab
+0aaaac
 
 #230
 0aaaaa
 
 #240
 1aaaaa
+1aaaab
 1aaaac
-b100000 aaaad
+b10100000 aaaad
 
 #250
 0aaaaa
@@ -139,8 +145,95 @@ b100000 aaaad
 #280
 1aaaaa
 1aaaab
+1aaaac
+b11000000 aaaad
 
 #290
 0aaaaa
 
 #300
+1aaaaa
+0aaaab
+0aaaac
+
+#310
+0aaaaa
+
+#320
+1aaaaa
+1aaaab
+1aaaac
+b11100000 aaaad
+
+#330
+0aaaaa
+
+#340
+1aaaaa
+0aaaab
+0aaaac
+
+#350
+0aaaaa
+
+#360
+1aaaaa
+1aaaab
+1aaaac
+b100000000 aaaad
+
+#370
+0aaaaa
+
+#380
+1aaaaa
+0aaaab
+0aaaac
+
+#390
+0aaaaa
+
+#400
+1aaaaa
+1aaaab
+1aaaac
+b100100000 aaaad
+
+#410
+0aaaaa
+
+#420
+1aaaaa
+0aaaab
+0aaaac
+
+#430
+0aaaaa
+
+#440
+1aaaaa
+1aaaab
+1aaaac
+b101000000 aaaad
+
+#450
+0aaaaa
+
+#460
+1aaaaa
+0aaaab
+0aaaac
+
+#470
+0aaaaa
+
+#480
+1aaaaa
+1aaaab
+1aaaac
+b101100000 aaaad
+
+#490
+0aaaaa
+
+#500
