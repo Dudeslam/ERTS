@@ -12,20 +12,18 @@ SC_MODULE(ModuleSingle) {
         SC_METHOD(method_A);
         sensitive << A;
     }
-    void thread_A(void)
-    {
-        while (1)
-        {
+    void thread_A(void){
+        while (1){
             wait(2, SC_MS);
-            A.notify();;
+            A.notify();
         }
     }
-
-
-    void method_A(void)
-    {
+    void method_A(void){
         counter++;
-        cout << name() << " incremented counter value to: " << counter << " at timestamp: " << sc_time_stamp() << endl;
+        cout << name() << " incremented counter value to: " << counter 
+    	<< " at timestamp: " << sc_time_stamp() << endl;
     }
 };
+
+
 
