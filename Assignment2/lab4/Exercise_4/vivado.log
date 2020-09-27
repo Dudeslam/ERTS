@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Sep 27 11:40:29 2020
+# Process ID: 7636
+# Current directory: D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3300 D:\Repo\ERTS\Assignment\Assignment-work\Assignment_2\Assignment2\Exercise_4\Exercise_4\Exercise_4.xpr
+# Log file: D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/vivado.log
+# Journal file: D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4'
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/HLS_labs/lab3/lab3.ipdefs/led_ip_0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Programmer/Xilinx/Vivado/2017.2/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'system_processing_system7_0_0' generated file not found 'd:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/sim/libps7.so'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'system_processing_system7_0_0' generated file not found 'd:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/sim/libps7.dll'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'system_processing_system7_0_0' generated file not found 'd:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/sim/libremoteport.so'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'system_processing_system7_0_0' generated file not found 'd:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/sim/libremoteport.dll'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 779.598 ; gain = 138.113
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk -hwspec D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk/system_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk -hwspec D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk/system_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk -hwspec D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk/system_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk -hwspec D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk/system_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk -hwspec D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk/system_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk -hwspec D:/Repo/ERTS/Assignment/Assignment-work/Assignment_2/Assignment2/Exercise_4/Exercise_4/Exercise_4.sdk/system_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Sep 27 15:17:09 2020...

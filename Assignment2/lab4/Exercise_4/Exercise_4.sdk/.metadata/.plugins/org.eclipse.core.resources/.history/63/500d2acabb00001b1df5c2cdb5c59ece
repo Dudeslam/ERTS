@@ -1,0 +1,27 @@
+#include "Matrixmul.h"
+#include "xtime_l.h"
+#include "xil_printf.h"
+
+
+void SetInputMatrices(VectorArray A, VectorArray B)
+{
+
+}
+
+void displayMatrix(VectorArray input)
+{
+
+
+}
+
+void multiMatrixSoft(VectorArray A, VectorArray B, VectorArray P)
+{
+
+	P;
+}
+
+void multiMatrixHard(VectorArray A, VectorArray B, VectorArray P)
+{
+
+}
+
