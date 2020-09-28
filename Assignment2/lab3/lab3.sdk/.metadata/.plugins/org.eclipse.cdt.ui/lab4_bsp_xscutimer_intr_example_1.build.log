@@ -1,0 +1,8 @@
+12:07:53 **** Incremental Build of configuration Debug for project lab4_bsp_xscutimer_intr_example_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Ingenting at gøre for 'main-build'.
+
+12:07:54 Build Finished (took 235ms)
+
