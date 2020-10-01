@@ -61,6 +61,26 @@ void multiMatrixSoft(VectorArray A, VectorArray B, VectorArray P)
 	  }
 }
 
+void transpose(VectorArray input)
+{
+	VectorArray Buffer;
+	for(int i=0; i<MSIZE;i++)
+	{
+		for(int j=0; j<MSIZE; j++)
+		{
+			Buffer[i].comp[j]=input[i].comp[j];
+		}
+	}
+
+
+	for(int i=0; i<MSIZE;i++)
+	{
+		for(int j=0; j<MSIZE; j++)
+		{
+			input[j].comp[i]=Buffer[i].comp[j];
+		}
+	}
+}
 
 void multiMatrixHard(VectorArray A, VectorArray B, VectorArray P)
 {

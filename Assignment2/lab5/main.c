@@ -35,6 +35,10 @@ int main(void)
 	//displayMatrix(aInst, "aInst");
 	//displayMatrix(bTInst, "bTInst");
 
+	xil_printf("\r\nTransposing");
+	transpose(bTInst);
+	displayMatrix(bTInst, "bTInst");
+
 	//multiMatrixSoft(aInst, bTInst, pInst);
 	//displayMatrix(pInst, "pInst");
 
