@@ -12,23 +12,36 @@
 
 VectorArray aInst, bTInst, pInst;
 
+
 int main(void)
 {
-
+	xil_printf("-- Starting Program -- \r\n");
 	SetInputMatrices(aInst, bTInst);
-	displayMatrix(aInst);
-	displayMatrix(bTInst);
+	displayMatrix(aInst, "aInst");
+	displayMatrix(bTInst, "bTInst");
 
+	xil_printf("\r\nSoftware Multiplication");
 	multiMatrixSoft(aInst, bTInst, pInst);
-	displayMatrix(pInst);
-	
-	
-	EmptyMatrix(aInst, bTInst)
-	displayMatrix(aInst);
-	displayMatrix(bTInst);
+	displayMatrix(pInst, "pInst");
 
+	xil_printf("\r\nClearing Matrices");
+	EmptyMatrix(aInst, bTInst, pInst);
+	displayMatrix(aInst, "aInst");
+	//displayMatrix(bTInst, "bTInst");
+	//displayMatrix(pInst, "pInst");
+
+	xil_printf("\r\nRe-adding variables to matrices \r\n");
+	SetInputMatrices(aInst, bTInst);
+	//displayMatrix(aInst, "aInst");
+	//displayMatrix(bTInst, "bTInst");
+
+	//multiMatrixSoft(aInst, bTInst, pInst);
+	//displayMatrix(pInst, "pInst");
+
+	xil_printf("\r\nHardware Multiplication");
 	multiMatrixHard(aInst, bTInst, pInst);
-	displayMatrix(pInst);
+	displayMatrix(pInst, "pInst");
+
 	while(1)
 	{
 
