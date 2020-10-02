@@ -12,12 +12,15 @@ typedef union{
 
 typedef VectorType VectorArray[MSIZE];
 
+
+
+
 void SetInputMatrices(VectorArray A, VectorArray B)
 {
-    for (u32 i = 0; i < MSIZE; i++) {
-        for (u32 j = 0; j < MSIZE; j++) {
+    for (int i = 0; i < MSIZE; i++) {
+        for (int j = 0; j < MSIZE; j++) {
             A[i].comp[j] = (MSIZE*i) + j + 1;
-            B[i].comp[j] = i+1;
+            B[j].comp[i] = i+1;
         }
     }
 }
@@ -38,9 +41,9 @@ void displayMatrix(VectorArray input, char * name)
 
 void EmptyMatrix(VectorArray A, VectorArray B, VectorArray P)
 {
-	for (u32 i = 0; i < MSIZE; i++)
+	for (int i = 0; i < MSIZE; i++)
 	{
-        for (u32 j = 0; j < MSIZE; j++)
+        for (int j = 0; j < MSIZE; j++)
         {
             A[i].comp[j] = 0;
             B[i].comp[j] = 0;
@@ -55,7 +58,7 @@ void multiMatrixSoft(VectorArray A, VectorArray B, VectorArray P)
 	  for(int i=0; i < MSIZE; i++) {
 	    for(int j=0; j < MSIZE; j++) {
 	      for(int k=0; k < MSIZE; k++) { // k < q WILL ALSO WORK
-	        P[i].comp[j] += A[i].comp[k]*B[k].comp[j];
+	        P[i].comp[j] += A[i].comp[k]*B[i].comp[k];
 	      }
 	    }
 	  }
@@ -88,7 +91,7 @@ void multiMatrixHard(VectorArray A, VectorArray B, VectorArray P)
 	regaddr0 = XPAR_MATRIX_IP_0_S00_AXI_BASEADDR + MATRIX_IP_S00_AXI_SLV_REG0_OFFSET;
 	regaddr1 = XPAR_MATRIX_IP_0_S00_AXI_BASEADDR + MATRIX_IP_S00_AXI_SLV_REG1_OFFSET;
 	regaddr2 = XPAR_MATRIX_IP_0_S00_AXI_BASEADDR + MATRIX_IP_S00_AXI_SLV_REG2_OFFSET;
-
+	//transpose(B);
 
 	  for(int i=0; i < MSIZE; i++)
 	  {
