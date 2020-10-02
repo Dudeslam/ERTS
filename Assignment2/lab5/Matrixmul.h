@@ -2,6 +2,12 @@
 #include <xil_printf.h>
 #include "matrix_ip.h"
 #include "xparameters.h"
+#include "xscutimer.h"
+#define CLOCK_SECOND 325000000
+#define CLOCK_MILLISECOND 325000
+#define CLOCK_MICROSECOND 325
+int setupTimer(XScuTimer *timer);
+void printTime(u32 tStart, u32 tSlut);
 // Matrix Size
 #define MSIZE 4
 
@@ -9,8 +15,34 @@ typedef union{
 	unsigned char comp[MSIZE];
 	unsigned int vect;
 } VectorType;
+u32 tStart, tSlut;
+
 
 typedef VectorType VectorArray[MSIZE];
+int setupTimer(XScuTimer *Timer){
+		XScuTimer_Config *ConfigPtr;
+		XScuTimer *TimerInstancePtr = Timer;
+		// Initialize the timer
+		ConfigPtr = XScuTimer_LookupConfig (XPAR_PS7_SCUTIMER_0_DEVICE_ID);
+		int Status = XScuTimer_CfgInitialize (TimerInstancePtr, ConfigPtr, ConfigPtr->BaseAddr);
+		if (Status != XST_SUCCESS){
+		   xil_printf("Timer init() failed\r\n");
+		   return XST_FAILURE;
+		}
+		// Load timer with delay in multiple of ???_SECOND
+		XScuTimer_LoadTimer(TimerInstancePtr, CLOCK_SECOND);
+		// Set AutoLoad mode
+		XScuTimer_EnableAutoReload(TimerInstancePtr);
+}
+
+void printTime(u32 tStart, u32 tSlut){
+	int timeCount = tStart-tSlut;
+	xil_printf("Clock cycles: %d\r\n", timeCount);
+	//xil_printf("Seconds: %d\r\n", timeCount/CLOCK_SECOND);
+	//xil_printf("Milliseconds: %d\r\n", timeCount/CLOCK_MILLISECOND);
+	xil_printf("Microseconds: %d\r\n", timeCount/CLOCK_MICROSECOND);
+	xil_printf("\r\n");
+}
 
 
 
@@ -64,6 +96,23 @@ void multiMatrixSoft(VectorArray A, VectorArray B, VectorArray P)
 	  }
 }
 
+void runmultiSoft(VectorArray A, VectorArray B, VectorArray P)
+{
+	XScuTimer timer;
+	setupTimer(&timer);
+
+	SetInputMatrices(A, B);
+	displayMatrix(A, "aInst");
+	displayMatrix(B, "bTInst");
+
+	xil_printf("\r\nHardware Multiplication\r\n");
+	u32 tStart = XScuTimer_GetCounterValue(&timer);
+	multiMatrixSoft(A,B,P);
+	u32 tSlut = XScuTimer_GetCounterValue(&timer);
+	XScuTimer_Stop(&timer);
+	printTime(tStart, tSlut);
+}
+
 void transpose(VectorArray input)
 {
 	VectorArray Buffer;
@@ -102,5 +151,23 @@ void multiMatrixHard(VectorArray A, VectorArray B, VectorArray P)
 	    	P[i].comp[j] = Xil_In32(regaddr2);
 		  }
 	  }
+}
+
+void runmultiHard(VectorArray A, VectorArray B, VectorArray P)
+{
+	XScuTimer timer;
+	setupTimer(&timer);
+
+	SetInputMatrices(A, B);
+	displayMatrix(A, "aInst");
+	displayMatrix(B, "bTInst");
+
+	xil_printf("\r\nHardware Multiplication\r\n");
+	u32 tStart = XScuTimer_GetCounterValue(&timer);
+	multiMatrixHard(A,B,P);
+	u32 tSlut = XScuTimer_GetCounterValue(&timer);
+	XScuTimer_Stop(&timer);
+	printTime(tStart, tSlut);
+
 }
 
