@@ -19,6 +19,7 @@ u32 tStart, tSlut;
 
 
 typedef VectorType VectorArray[MSIZE];
+
 int setupTimer(XScuTimer *Timer){
 		XScuTimer_Config *ConfigPtr;
 		XScuTimer *TimerInstancePtr = Timer;
