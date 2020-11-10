@@ -5,7 +5,13 @@
 class Mode1 : public State
 {
 public:
-	static State* Instance();
+	Mode1();
+
+	static State* Instance()
+	{
+		static Mode1 instance;
+		return &instance;
+	}
 
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
@@ -17,7 +23,12 @@ public:
 class Mode2 : public State
 {
 public:
-	static State* Instance();
+	Mode2();
+	static State* Instance()
+	{
+		static Mode2 instance;
+		return &instance;
+	}
 
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
@@ -30,7 +41,12 @@ public:
 class Mode3 : public State
 {
 public:
-	static State* Instance();
+	Mode3();
+	static State* Instance()
+	{
+		static Mode3 instance;
+		return &instance;
+	}
 
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
@@ -56,7 +72,7 @@ class Failure : public State
 {
 public:
 	static State* Instance();
-	void display(int ErrorNo);
+	void display(EmbeddedSystemX* ,int ErrorNo);
 	void Exit(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
 	

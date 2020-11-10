@@ -1,10 +1,32 @@
 #ifndef STATE_H_
 #define STATE_H_
+#include <string>
+#include <iostream>
+
 
 class EmbeddedSystemX;
 
 class State {
 public:
+
+	std::string name_;
+	int ErrorNo_;
+
+	std::string getName()
+	{
+		return name_;
+	}
+
+	void setContext(EmbeddedSystemX* ctx)
+	{
+		//sets the context of the state
+		this->ctx_ = ctx;
+	}
+
+	void setErrNo(int errNo)
+	{
+		ErrorNo_ = errNo;
+	}
 	// Maybe instance?
   virtual void SelfTestOk(EmbeddedSystemX*);
   virtual void Initialized(EmbeddedSystemX*);
@@ -23,10 +45,15 @@ public:
   virtual void eventY(EmbeddedSystemX*);
 
 protected:
+	State(std::string name)
+	{
+		name_ = name;
+	}
 
-  void ChangeState(EmbeddedSystemX* t, State* s);
+
 private:
-  State* _state;
+  State* state_;
+  EmbeddedSystemX* ctx_;
 };
 
 #endif /* STATE_H_ */
