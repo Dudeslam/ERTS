@@ -1,6 +1,7 @@
 #pragma once
 
 #include "State.h"
+#include "EmbeddedSystemX.h"
 
 class Mode1 : public State
 {
@@ -59,7 +60,12 @@ public:
 class Configuration : public State
 {
 public:
-	static State* Instance();
+	Configuration();
+	static State* Instance()
+	{
+		static Configuration instance;
+		return &instance;
+	}
 
 	void ConfigurationEnded(EmbeddedSystemX*) override;
 	void ConfigX(EmbeddedSystemX*) override;
@@ -71,6 +77,13 @@ public:
 class Failure : public State
 {
 public:
+	Failure();
+
+	static State* Instance()
+	{
+		static Failure instance;
+		return &instance;
+	}
 	static State* Instance();
 	void display(EmbeddedSystemX* ,int ErrorNo);
 	void Exit(EmbeddedSystemX*) override;
@@ -81,7 +94,13 @@ public:
 class Suspended : public State
 {
 public:
-	static State* Instance();
+	Suspended();
+
+	static State* Instance()
+	{
+		static Failure instance;
+		return &instance;
+	}
 
 	void Stop(EmbeddedSystemX*) override;
 	void Resume(EmbeddedSystemX*) override;
@@ -92,7 +111,13 @@ public:
 class Ready : public State
 {
 public:
-	static State* Instance();
+	Ready();
+
+	static State* Instance()
+	{
+		static Ready instance;
+		return &instance;
+	}
 
 	void Configure(EmbeddedSystemX*) override;
 	void Start(EmbeddedSystemX*) override;
@@ -103,9 +128,14 @@ public:
 class Initializing : public State
 {
 public:
-	static State* Instance();
+	Initializing();
+	static State* Instance()
+	{
+		static Initializing instance;
+		return &instance;
+	}
 
-	void startInitializing();
+	void startInitializing(EmbeddedSystemX*);
 	void Initialized(EmbeddedSystemX*) override;
 
 };
@@ -113,9 +143,14 @@ public:
 class PowerOnSelfTest : public State
 {
 public:
-	static State* Instance();
+	PowerOnSelfTest();
+	static State* Instance()
+	{
+		static PowerOnSelfTest instance;
+		return &instance;
+	}
 
-	void SystemSelfTest();
+	void SystemSelfTest(EmbeddedSystemX*);
 	void SelfTestOk(EmbeddedSystemX*) override;
 	void SelfTestFailed(EmbeddedSystemX*, int ErrorNo) override;
 };
