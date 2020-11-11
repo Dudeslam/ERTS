@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #ifndef EMBEDDEDSYSTEMX_H_
 #define EMBEDDEDSYSTEMX_H_
 #include "State.h"
@@ -61,6 +61,6 @@ private:
 };
 
 #endif /* EMBEDDEDSYSTEMX_H_ */
-=======
+
 #pragma once
->>>>>>> fc1fc9adcb0267ddddc53c54e1bd270fe74336df
+
