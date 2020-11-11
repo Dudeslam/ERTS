@@ -9,25 +9,6 @@ class EmbeddedSystemX;
 class State {
 public:
 
-	std::string name_;
-	int ErrorNo_;
-
-	std::string getName()
-	{
-		return name_;
-	}
-
-	void setContext(EmbeddedSystemX* ctx)
-	{
-		//sets the context of the state
-		this->ctx_ = ctx;
-	}
-
-	void setErrNo(int errNo)
-	{
-		ErrorNo_ = errNo;
-	}
-	// Maybe instance?
   virtual void SelfTestOk(EmbeddedSystemX*);
   virtual void Initialized(EmbeddedSystemX*);
   virtual void Restart(EmbeddedSystemX*);
@@ -44,16 +25,12 @@ public:
   virtual void eventX(EmbeddedSystemX*);
   virtual void eventY(EmbeddedSystemX*);
 
+  virtual void EntryAction(EmbeddedSystemX*);
+  virtual const char* stateName();
+
 protected:
-	State(std::string name)
-	{
-		name_ = name;
-	}
-
-
-private:
-  State* state_;
-  EmbeddedSystemX* ctx_;
+  void ChangeState(EmbeddedSystemX* t, State* s);
+	
 };
 
 #endif /* STATE_H_ */

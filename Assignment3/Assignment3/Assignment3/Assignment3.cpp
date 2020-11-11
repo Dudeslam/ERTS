@@ -2,15 +2,25 @@
 //
 
 #include <iostream>
+#include <Windows.h>
 #include "EmbeddedSystemX.h"
 
 
 
 int main()
 {
-    //Context* context = new Context(new PowerOnSelfTest);
-    //context->
-    return 0;
+  char name[] = "Test";
+  EmbeddedSystemX* emx = new EmbeddedSystemX(name, 1);
+	int notexit = 1;
+	while(notexit)
+	{
+		Sleep(2000);
+		std::cout << "hey" << std::endl;
+		// Maybe just a text interface here, where we ask the user which events to call and then call events like so:
+		emx->Start();
+	}
+	
+  return 0;
 }
 
 

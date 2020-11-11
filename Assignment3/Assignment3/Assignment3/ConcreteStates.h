@@ -8,153 +8,154 @@
 class Mode1 : public State
 {
 public:
-	Mode1();
 
-	static State* Instance()
-	{
-		static Mode1 instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	const char* stateName();
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
 	void Suspend(EmbeddedSystemX*) override;
 	void eventX(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
+
+	static void responseM1eventX();
+
+private:
+	static State* inst_;
 };
 
 class Mode2 : public State
 {
 public:
-	Mode2();
-	static State* Instance()
-	{
-		static Mode2 instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	const char* stateName();
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
 	void Suspend(EmbeddedSystemX*) override;
 	void eventY(EmbeddedSystemX*) override;
 	void eventX(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
-	
+
+	static void responseM2eventX();
+	static void responseM2eventY();
+
+private:
+	static State* inst_;
 };
 
 class Mode3 : public State
 {
 public:
-	Mode3();
-	static State* Instance()
-	{
-		static Mode3 instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	const char* stateName();
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
 	void Suspend(EmbeddedSystemX*) override;
 	void eventX(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
-	
+
+	static void responseM3eventX();
+
+private:
+	static State* inst_;
 };
 
 class Configuration : public State
 {
 public:
-	Configuration();
-	static State* Instance()
-	{
-		static Configuration instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	void EntryAction(EmbeddedSystemX*);
+	const char* stateName();
+
+	// Events
 	void ConfigurationEnded(EmbeddedSystemX*) override;
 	void ConfigX(EmbeddedSystemX*) override;
-	void ReadConfigurationInfo();
 	void Restart(EmbeddedSystemX*) override;
 	void Configure(EmbeddedSystemX*) override;
+
+	// Internal functions
+	static void ReadConfigurationInfo();
+	static void PerformConfigurationX();
+
+private:
+	static State* inst_;
 };
 
 
 class Failure : public State
 {
 public:
-	Failure();
 
-	static State* Instance()
-	{
-		static Failure instance;
-		return &instance;
-	}
+	void EntryAction(EmbeddedSystemX*);
+	const char* stateName();
 	static State* Instance();
 	void display(EmbeddedSystemX* ,int ErrorNo);
 	void Exit(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
-	
+
+private:
+	static State* inst_;
 };
 
 class Suspended : public State
 {
 public:
-	Suspended();
 
-	static State* Instance()
-	{
-		static Failure instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	void EntryAction(EmbeddedSystemX*);
+	const char* stateName();
 	void Stop(EmbeddedSystemX*) override;
 	void Resume(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
-	
+
+private:
+	static State* inst_;
 };
 
 class Ready : public State
 {
 public:
-	Ready();
 
-	static State* Instance()
-	{
-		static Ready instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	const char* stateName();
 	void Configure(EmbeddedSystemX*) override;
 	void Start(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
 	
+private:
+	static State* inst_;
 };
 
 class Initializing : public State
 {
 public:
-	Initializing();
-	static State* Instance()
-	{
-		static Initializing instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	void EntryAction(EmbeddedSystemX*);
+	const char* stateName();
 	void startInitializing(EmbeddedSystemX*);
 	void Initialized(EmbeddedSystemX*) override;
 
+private:
+	static State* inst_;
 };
 
 class PowerOnSelfTest : public State
 {
 public:
-	PowerOnSelfTest();
-	static State* Instance()
-	{
-		static PowerOnSelfTest instance;
-		return &instance;
-	}
+	static State* Instance();
 
+	void EntryAction(EmbeddedSystemX*) override;
+	const char* stateName() override;
 	void SystemSelfTest(EmbeddedSystemX*);
 	void SelfTestOk(EmbeddedSystemX*) override;
 	void SelfTestFailed(EmbeddedSystemX*, int ErrorNo) override;
+
+private:
+	static State* inst_;
 };

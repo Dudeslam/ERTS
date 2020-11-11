@@ -1,7 +1,7 @@
 #ifndef EMBEDDEDSYSTEMX_H_
 #define EMBEDDEDSYSTEMX_H_
-#include "State.h"
-#include "ConcreteStates.h"
+//#include "State.h"
+//#include "ConcreteStates.h"
 #include <stdlib.h>
 
 class State;
@@ -9,11 +9,7 @@ class mode;
 
 class EmbeddedSystemX {
 public:
-	EmbeddedSystemX(char* name, int versNo)
-	{
-		Name_ = name;
-		VersionNo_ = versNo;
-  }
+	EmbeddedSystemX(char* name, int versNo);
 
 	void SelfTestOk();
 	void Initialized();
@@ -30,26 +26,10 @@ public:
 	void chMode();
 	void eventX();
 	void eventY();
-	void ChangeState(State* s)
-	{
-		//only prints leaving state if it is in a state, otherwise it only enters a state
-		if (state_ != 0)
-		{
-			std::cout << "Leaving state: " << state_->getName() << std::endl;
-		}
-		state_ = s;
-		std::cout << "Entering state: " << state_->getName() << std::endl;
-		this->state_->setContext(this);
-	}
+	void ChangeState(State* s);
 
 protected:
   friend class State;
-
-  EmbeddedSystemX(State* state) : state_(nullptr)
-  {
-	  //print and set function for transitioning states
-	  this->ChangeState(state);
-  }
 
 private:
   State* state_;
