@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 class State;
+class mode;
 
 class EmbeddedSystemX {
 public:
@@ -12,7 +13,6 @@ public:
 	{
 		Name_ = name;
 		VersionNo_ = versNo;
-		ctx_ = new EmbeddedSystemX();
   }
 
 	void SelfTestOk();
@@ -20,9 +20,7 @@ public:
 	void Restart();
 	void Configure();
 	void ConfigurationEnded();
-	void Exit() { 
-		exit(0);
-	};
+	void Exit();
 	void Stop();
 	void Start();
 	void Suspend();
@@ -55,6 +53,7 @@ protected:
 
 private:
   State* state_;
+  mode* mode;
 	int VersionNo_;
 	char* Name_;
 	EmbeddedSystemX* ctx_;

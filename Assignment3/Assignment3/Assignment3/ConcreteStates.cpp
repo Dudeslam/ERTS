@@ -1,5 +1,6 @@
 #include "ConcreteStates.h"
 
+
 //mode1 functions
 Mode1::Mode1() : State("Mode1")
 {
@@ -12,24 +13,24 @@ void Mode1::chMode(EmbeddedSystemX* ctx)
 	ctx->ChangeState(Mode2::Instance());
 }
 
-void Mode1::Stop(EmbeddedSystemX*)
+void Mode1::Stop(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(Ready::Instance());
 }
 
-void Mode1::Suspend(EmbeddedSystemX*)
+void Mode1::Suspend(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(Suspended::Instance());
 }
 
 void Mode1::eventX(EmbeddedSystemX*)
 {
-
+	std::cout << "Performing Event X" << std::endl;
 }
 
-void Mode1::Restart(EmbeddedSystemX*)
+void Mode1::Restart(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(PowerOnSelfTest::Instance());
 }
 
 
@@ -46,24 +47,29 @@ void Mode2::chMode(EmbeddedSystemX* ctx)
 	ctx->ChangeState(Mode3::Instance());
 }
 
-void Mode2::Stop(EmbeddedSystemX*)
+void Mode2::Stop(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(Ready::Instance());
 }
 
-void Mode2::Suspend(EmbeddedSystemX*)
+void Mode2::Suspend(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(Suspended::Instance());
 }
 
 void Mode2::eventY(EmbeddedSystemX*)
 {
-
+	std::cout << "Performing Event Y" << std::endl;
 }
 
-void Mode2::Restart(EmbeddedSystemX*)
+void Mode2::eventX(EmbeddedSystemX*)
 {
+	std::cout << "Performing Event X" << std::endl;
+}
 
+void Mode2::Restart(EmbeddedSystemX* ctx)
+{
+	ctx->ChangeState(PowerOnSelfTest::Instance());
 }
 
 
@@ -79,24 +85,24 @@ void Mode3::chMode(EmbeddedSystemX* ctx)
 	ctx->ChangeState(Mode1::Instance());
 }
 
-void Mode3::Stop(EmbeddedSystemX*)
+void Mode3::Stop(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(Ready::Instance());
 }
 
-void Mode3::Suspend(EmbeddedSystemX*)
+void Mode3::Suspend(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(Suspended::Instance());
 }
 
 void Mode3::eventX(EmbeddedSystemX*)
 {
-
+	std::cout << "Performing Event X" << std::endl;
 }
 
-void Mode3::Restart(EmbeddedSystemX*)
+void Mode3::Restart(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(PowerOnSelfTest::Instance());
 }
 
 
@@ -114,17 +120,23 @@ void Configuration::ConfigurationEnded(EmbeddedSystemX* ctx)
 void Configuration::ConfigX(EmbeddedSystemX* ctx)
 {
 	ReadConfigurationInfo();
+	Configure(ctx);
+}
 
+void Configuration::Configure(EmbeddedSystemX* ctx)
+{
+	std::cout << "Applying Configuration" << std::endl;
+	ConfigurationEnded(ctx);
 }
 
 void Configuration::ReadConfigurationInfo()
 {
-	std::cout << "Reading configurations and applying" << std::endl;
+	std::cout << "Reading configurations" << std::endl;
 }
 
-void Configuration::Restart(EmbeddedSystemX*)
+void Configuration::Restart(EmbeddedSystemX* ctx)
 {
-
+	ctx->ChangeState(PowerOnSelfTest::Instance());
 }
 
 
@@ -136,17 +148,18 @@ Failure::Failure() : State("Failure")
 void Failure::display(EmbeddedSystemX* ctx, int ErrorNo)
 {
 	std::cout << "Power On Self test failed with: E#" << errno << std::endl;
-	if (ErrorNo = 1)
+	std::cout << "Do you wish to restart y/n" << std::endl;
+	char field;
+	field = std::cin.get();
+	switch (field)
 	{
+	case 'y':
 		std::cout << "Will now restart SelfTest" << std::endl;
 		Restart(ctx);
-	}
-	else
-	{
+	case 'n':
 		std::cout << "Application failed, will now exit" << std::endl;
 		Exit(ctx);
 	}
-
 
 }
 
@@ -174,13 +187,15 @@ void Suspended::Stop(EmbeddedSystemX* ctx)
 	ctx->ChangeState(Ready::Instance());
 }
 
-void Suspended::Resume(EmbeddedSystemX*)
+void Suspended::Resume(EmbeddedSystemX* ctx)
 {
 
+	ctx->ChangeState(Mode1::Instance());
 }
 
-void Suspended::Restart(EmbeddedSystemX*)
+void Suspended::Restart(EmbeddedSystemX* ctx)
 {
+	ctx->ChangeState(PowerOnSelfTest::Instance());
 }
 
 
@@ -197,7 +212,7 @@ void Ready::Configure(EmbeddedSystemX* ctx)
 
 void Ready::Start(EmbeddedSystemX* ctx)
 {
-	
+	ctx->ChangeState(Mode1::Instance());
 }
 
 void Ready::Restart(EmbeddedSystemX* ctx)
@@ -232,8 +247,17 @@ PowerOnSelfTest::PowerOnSelfTest() : State("PowerOnSelfTest")
 void PowerOnSelfTest::SystemSelfTest(EmbeddedSystemX* ctx)
 {
 	std::cout << "System Self test running " << std::endl;
-	//add 50/50 chance for selftestOk
-	SelfTestOk(ctx);
+	std::cout << "For simulation purposes, should the self test fail, y/n" << std::endl;
+	char field;
+	field = std::cin.get();
+	switch (field)
+	{
+	case 'y':
+		SelfTestFailed(ctx, 1);
+	case 'n':
+		SelfTestOk(ctx);
+	}
+	
 }
 
 void PowerOnSelfTest::SelfTestOk(EmbeddedSystemX* ctx)

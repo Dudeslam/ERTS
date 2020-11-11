@@ -2,6 +2,8 @@
 
 #include "State.h"
 #include "EmbeddedSystemX.h"
+#include <iostream>
+
 
 class Mode1 : public State
 {
@@ -35,6 +37,7 @@ public:
 	void Stop(EmbeddedSystemX*) override;
 	void Suspend(EmbeddedSystemX*) override;
 	void eventY(EmbeddedSystemX*) override;
+	void eventX(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
 	
 };
@@ -71,6 +74,7 @@ public:
 	void ConfigX(EmbeddedSystemX*) override;
 	void ReadConfigurationInfo();
 	void Restart(EmbeddedSystemX*) override;
+	void Configure(EmbeddedSystemX*) override;
 };
 
 
