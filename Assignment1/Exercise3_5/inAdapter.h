@@ -5,7 +5,6 @@ template <class T>
 class InAdapter : public sc_fifo_out_if<T>, public sc_module
 {
 public:
-	
 	//clock and reset
 	sc_in_clk clock;
 	sc_in<sc_logic>reset;
@@ -15,15 +14,14 @@ public:
 	sc_out<sc_logic>valid;
 
 	//channel, error and data ports ST bus
-	sc_out<sc_uint<CHANNEL_BITS>> channel;
-	sc_out<sc_uint<ERROR_BITS>> error;
-	sc_out<sc_uint<DATA_BITS>> data;
+	sc_out<sc_int<CHANNEL_BITS>> channel;
+	sc_out<sc_int<ERROR_BITS>> error;
+	sc_out<sc_int<DATA_BITS>> data;
 
 	void write(const T & value) {
-
 		if (reset == SC_LOGIC_0) {
 			// Output sample data on negative edge
-			while (ready== SC_LOGIC_0) {
+			while (ready==SC_LOGIC_0) {
 				wait(clock.posedge_event());
 			}
 			wait(clock.posedge_event());

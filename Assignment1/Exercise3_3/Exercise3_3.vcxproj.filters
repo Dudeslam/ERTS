@@ -18,10 +18,10 @@
     <ClInclude Include="Consumer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Producer.h">
+    <ClInclude Include="TCPHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TCPHeader.h">
+    <ClInclude Include="Producer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

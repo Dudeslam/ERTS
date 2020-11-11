@@ -1,9 +1,9 @@
-
 #include <systemc.h>
 #include "Consumer.h"
 #include "Producer.h"
 
-int sc_main(int argc, char** argv) {
+int sc_main(int argc, char** argv)
+{
     // Declare modules
     Producer prod("ProducerModule");
     Consumer cons1("ConsumerModule1");
@@ -11,7 +11,7 @@ int sc_main(int argc, char** argv) {
 
     // Declare channels
     sc_fifo<TCPHeader*> tcp_channel1("C1");
-    sc_fifo<TCPHeader*> tcp_channel2("C2");
+    sc_fifo<TCPHeader*> tcp_channel2("C1");
 
     // Connect ports to channels
     prod.tcp_out(tcp_channel1);

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef STATE_H_
 #define STATE_H_
 #include <string>
@@ -57,3 +58,6 @@ private:
 };
 
 #endif /* STATE_H_ */
+=======
+#pragma once
+>>>>>>> fc1fc9adcb0267ddddc53c54e1bd270fe74336df

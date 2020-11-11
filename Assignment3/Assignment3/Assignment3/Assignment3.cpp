@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+<<<<<<< HEAD
 #include "EmbeddedSystemX.h"
 
 
@@ -15,6 +16,14 @@ int main()
 
 
 
+=======
+
+int main()
+{
+    std::cout << "Hello World!\n";
+}
+
+>>>>>>> fc1fc9adcb0267ddddc53c54e1bd270fe74336df
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 

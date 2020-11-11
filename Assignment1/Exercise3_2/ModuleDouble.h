@@ -15,37 +15,43 @@ SC_MODULE(ModuleDouble) {
         sensitive << B;
         alternator = true;
     }
-    void thread_A(void){
-        while (1){
+    void thread_A(void)
+    {
+        while (1)
+        {
             wait(3, SC_MS);
             A.notify();
             wait(sc_time(3, SC_MS), Aack);
         }
     }
 
-    void thread_B(void){
-        while (1){
+    void thread_B(void)
+    {
+        while (1)
+        {
             wait(2, SC_MS);
             B.notify();
             wait(sc_time(2, SC_MS), Back);
         }
     }
 
-    void method_A(void){
+    void method_A(void)
+    {
         counter++;
-        if (alternator == true){
+        if (alternator == true)
+        {
             Back.notify();
             cout << name() << " notified by event B at timestamp: " << sc_time_stamp() << endl;
             next_trigger(A);
             alternator = false;
         }
-        else{
+        else
+        {
             Aack.notify();
             cout << name() << " notified by event A at timestamp: " << sc_time_stamp() << endl;
             next_trigger(B);
             alternator = true;
         }
+
     }
 };
-
-
