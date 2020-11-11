@@ -10,6 +10,8 @@ class Mode1 : public State
 public:
 	Mode1();
 
+	//this method for Singleton classes serves as an 
+	//alternative constructor lets us have access to the same instance of class
 	static State* Instance()
 	{
 		static Mode1 instance;
@@ -88,7 +90,7 @@ public:
 		static Failure instance;
 		return &instance;
 	}
-	static State* Instance();
+
 	void display(EmbeddedSystemX* ,int ErrorNo);
 	void Exit(EmbeddedSystemX*) override;
 	void Restart(EmbeddedSystemX*) override;
