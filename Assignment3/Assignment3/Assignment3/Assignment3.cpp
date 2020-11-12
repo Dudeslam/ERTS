@@ -5,7 +5,7 @@
 #include <Windows.h>
 #include "EmbeddedSystemX.h"
 
-
+void run(EmbeddedSystemX*, int);
 
 int main()
 {
@@ -15,23 +15,49 @@ int main()
 	while(notexit)
 	{
 		Sleep(2000);
-		//std::cout << "hey" << std::endl;
-		// Maybe just a text interface here, where we ask the user which events to call and then call events like so:
-		emx->Start();
+		run(emx, notexit);
 	}
 	
   return 0;
 }
 
 
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+void run(EmbeddedSystemX* emx, int notexit)
+{
+	std::cout << "Choose which events to call: co (Configure), su (Suspend), st (start), stop (stop), r (resume), R (Restart), ch (chMode), Cx (ConfigX), Ex (eventX), Ey (eventY)" << std::endl;
+	char field;
+	std::cin >> field;
+	switch (field)
+	{
+	case 'co':
+		emx->Configure();
+		break;
+	case 'su':
+		emx->Suspend();
+		break;
+	case 'st':
+		emx->Start();
+		break;
+	case 'stop':
+		emx->Stop();
+		break;
+	case 'R':
+		emx->Restart();
+		break;
+	case 'ch':
+		emx->chMode();
+		break;
+	case 'Cx':
+		emx->ConfigX();
+		break;
+	case 'Ex':
+		emx->eventX();
+		break;
+	case 'Ey':
+		emx->eventY();
+		break;
+	default:
+		run(emx, notexit);
+		break;
+	}
+}

@@ -13,10 +13,6 @@ State* Mode1::Instance()
 	return inst_;
 }
 
-void Mode1::EntryAction(EmbeddedSystemX* ctx)
-{
-	this->eventX(ctx);
-}
 
 const char* Mode1::stateName()
 {
@@ -93,25 +89,25 @@ State* Mode2::Instance()
 	return inst_;
 }
 
-void Mode2::EntryAction(EmbeddedSystemX* ctx)
-{
-	std::cout << "For simulation purposes, choose event action: Y/X"<< std::endl;
-	char field;
-	std::cin >> field;
-	switch (field)
-	{
-	case 'Y':
-		this->eventY(ctx);
-		break;
-	case 'X':
-		this->eventX(ctx);
-		break;
-	default:
-		this->EntryAction(ctx);
-		break;
-	}
-
-}
+//void Mode2::EntryAction(EmbeddedSystemX* ctx)
+//{
+//	std::cout << "For simulation purposes, choose event action: Y/X"<< std::endl;
+//	char field;
+//	std::cin >> field;
+//	switch (field)
+//	{
+//	case 'Y':
+//		this->eventY(ctx);
+//		break;
+//	case 'X':
+//		this->eventX(ctx);
+//		break;
+//	default:
+//		this->EntryAction(ctx);
+//		break;
+//	}
+//
+//}
 
 const char* Mode2::stateName()
 {
@@ -224,10 +220,12 @@ const char* Mode3::stateName()
 {
 	return "Mode3";
 }
-void Mode3::EntryAction(EmbeddedSystemX* ctx)
-{
-	this->eventX(ctx);
-}
+
+//void Mode3::EntryAction(EmbeddedSystemX* ctx)
+//{
+//	this->eventX(ctx);
+//}
+
 void Mode3::chMode(EmbeddedSystemX* ctx)
 {
 	std::cout << "Changing mode" << std::endl;
@@ -298,8 +296,6 @@ State* Configuration::Instance()
 void Configuration::EntryAction(EmbeddedSystemX* ctx)
 {
 	ReadConfigurationInfo();
-	PerformConfigurationX();
-	this->Configure(ctx);
 }
 
 const char* Configuration::stateName()
@@ -397,7 +393,6 @@ void Failure::Restart(EmbeddedSystemX* ctx)
 
 
 //Suspended functions
-
 State* Suspended::inst_ = 0;
 
 State* Suspended::Instance()
@@ -472,28 +467,14 @@ const char* Ready::stateName()
 	return "Ready";
 }
 
-void Ready::EntryAction(EmbeddedSystemX* ctx)
-{
-	this->Configure(ctx);
-}
+//void Ready::EntryAction(EmbeddedSystemX* ctx)
+//{
+//	this->Configure(ctx);
+//}
 
 void Ready::Configure(EmbeddedSystemX* ctx)
 {
-	std::cout << "Do you wish to configure? y/n" << std::endl;
-	char field;
-	std::cin >> field;
-	switch (field)
-	{
-	case 'y':
-		std::cout << "System will now apply configuration" << std::endl;
 		ChangeState(ctx, Configuration::Instance());
-		break;
-	case 'n':
-		std::cout << "System will now proceed to real time loop" << std::endl;
-		this->Start(ctx);
-		break;
-	}
-	std::cout << field << std::endl;	
 }
 
 void Ready::Start(EmbeddedSystemX* ctx)

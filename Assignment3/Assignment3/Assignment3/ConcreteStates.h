@@ -10,7 +10,7 @@ class Mode1 : public State
 public:
 
 	static State* Instance();
-	void EntryAction(EmbeddedSystemX*);
+
 
 	const char* stateName();
 	void chMode(EmbeddedSystemX*) override;
@@ -30,7 +30,7 @@ class Mode2 : public State
 public:
 	static State* Instance();
 
-	void EntryAction(EmbeddedSystemX*);
+	//void EntryAction(EmbeddedSystemX*);
 	const char* stateName();
 	void chMode(EmbeddedSystemX*) override;
 	void Stop(EmbeddedSystemX*) override;
@@ -51,7 +51,7 @@ class Mode3 : public State
 public:
 	static State* Instance();
 
-	void EntryAction(EmbeddedSystemX*);
+	//void EntryAction(EmbeddedSystemX*);
 
 	const char* stateName();
 	void chMode(EmbeddedSystemX*) override;
@@ -126,7 +126,7 @@ public:
 
 	static State* Instance();
 
-	void EntryAction(EmbeddedSystemX*);
+	//void EntryAction(EmbeddedSystemX*);
 	const char* stateName();
 	void Configure(EmbeddedSystemX*) override;
 	void Start(EmbeddedSystemX*) override;
