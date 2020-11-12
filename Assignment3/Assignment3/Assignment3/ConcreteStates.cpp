@@ -27,6 +27,7 @@ void Mode1::chMode(EmbeddedSystemX* ctx)
 
 void Mode1::Stop(EmbeddedSystemX* ctx)
 {
+	std::cout << "Stopping real time loop" << std::endl;
 	ChangeState(ctx, Ready::Instance());
 }
 
@@ -40,30 +41,6 @@ void Mode1::eventX(EmbeddedSystemX* ctx)
 {
 	std::cout << "Got event X" << std::endl;
 	this->responseM1eventX();
-	std::cout << " To chance mode type: C, to restart type: R, to suspend type: P, to stop type: S" << std::endl;
-	char field =0;
-	std::cin >> field;
-
-	switch (field)
-	{
-	case 'C':
-		chMode(ctx);
-		break;
-	case 'R':
-		std::cout << "System Restarting" << std::endl;
-		Restart(ctx);
-		break;
-	case 'P':
-		Suspend(ctx);
-		break;
-	case 'S':
-		Stop(ctx);
-		break;
-	default:
-		eventX(ctx);
-		break;
-	}
-
 }
 
 void Mode1::Restart(EmbeddedSystemX* ctx)
@@ -89,25 +66,7 @@ State* Mode2::Instance()
 	return inst_;
 }
 
-//void Mode2::EntryAction(EmbeddedSystemX* ctx)
-//{
-//	std::cout << "For simulation purposes, choose event action: Y/X"<< std::endl;
-//	char field;
-//	std::cin >> field;
-//	switch (field)
-//	{
-//	case 'Y':
-//		this->eventY(ctx);
-//		break;
-//	case 'X':
-//		this->eventX(ctx);
-//		break;
-//	default:
-//		this->EntryAction(ctx);
-//		break;
-//	}
-//
-//}
+
 
 const char* Mode2::stateName()
 {
@@ -122,11 +81,13 @@ void Mode2::chMode(EmbeddedSystemX* ctx)
 
 void Mode2::Stop(EmbeddedSystemX* ctx)
 {
+	std::cout << "Stopping real time loop" << std::endl;
 	ChangeState(ctx, Ready::Instance());
 }
 
 void Mode2::Suspend(EmbeddedSystemX* ctx)
 {
+	std::cout << "Suspending real time loop" << std::endl;
 	ChangeState(ctx, Suspended::Instance());
 }
 
@@ -134,63 +95,18 @@ void Mode2::eventY(EmbeddedSystemX* ctx)
 {
 	std::cout << "Got event Y" << std::endl;
 	this->responseM2eventY();
-	std::cout << " To chance mode type: C, to restart type: R, to suspend type: P, to stop type: S" << std::endl;
-	char field = 0;
-	std::cin >> field;
-
-	switch (field)
-	{
-	case 'C':
-		chMode(ctx);
-		break;
-	case 'R':
-		std::cout << "System Restarting" << std::endl;
-		Restart(ctx);
-		break;
-	case 'P':
-		Suspend(ctx);
-		break;
-	case 'S':
-		Stop(ctx);
-		break;
-	default:
-		eventY(ctx);
-		break;
-	}
-
 }
 
 void Mode2::eventX(EmbeddedSystemX* ctx)
 {
 	std::cout << "Got event X" << std::endl;
 	this->responseM2eventX();
-	std::cout << " To chance mode type: C, to restart type: R, to suspend type: P, to stop type: S" << std::endl;
-	char field = 0;
-	std::cin >> field;
 
-	switch (field)
-	{
-	case 'C':
-		chMode(ctx);
-		break;
-	case 'R':
-		std::cout << "System Restarting" << std::endl;
-		Restart(ctx);
-		break;
-	case 'P':
-		Suspend(ctx);
-		break;
-	case 'S':
-		Stop(ctx);
-		break;
-	default:
-		eventX(ctx);
-		break;
-	}
 }
 
 void Mode2::Restart(EmbeddedSystemX* ctx)
 {
+	std::cout << "Restarting system" << std::endl;
 	ChangeState(ctx, PowerOnSelfTest::Instance());
 }
 
@@ -234,11 +150,13 @@ void Mode3::chMode(EmbeddedSystemX* ctx)
 
 void Mode3::Stop(EmbeddedSystemX* ctx)
 {
+	std::cout << "Stopping real time loop" << std::endl;
 	ChangeState(ctx, Ready::Instance());
 }
 
 void Mode3::Suspend(EmbeddedSystemX* ctx)
 {
+	std::cout << "Suspending real time loop" << std::endl;
 	ChangeState(ctx, Suspended::Instance());
 }
 
@@ -246,33 +164,11 @@ void Mode3::eventX(EmbeddedSystemX* ctx)
 {
 	std::cout << "Got event X" << std::endl;
 	this->responseM3eventX();
-	std::cout << " To chance mode type: C, to restart type: R, to suspend type: P, to stop type: S" << std::endl;
-	char field = 0;
-	std::cin >> field;
-
-	switch (field)
-	{
-	case 'C':
-		chMode(ctx);
-		break;
-	case 'R':
-		std::cout << "System Restarting" << std::endl;
-		Restart(ctx);
-		break;
-	case 'P':
-		Suspend(ctx);
-		break;
-	case 'S':
-		Stop(ctx);
-		break;
-	default:
-		eventX(ctx);
-		break;
-	}
 }
 
 void Mode3::Restart(EmbeddedSystemX* ctx)
 {
+	std::cout << "Restarting system" << std::endl;
 	ChangeState(ctx, PowerOnSelfTest::Instance());
 }
 
@@ -312,6 +208,7 @@ void Configuration::ConfigurationEnded(EmbeddedSystemX* ctx)
 void Configuration::ConfigX(EmbeddedSystemX* ctx)
 {
 	this->PerformConfigurationX();
+	this->ConfigurationEnded(ctx);
 }
 
 void Configuration::Configure(EmbeddedSystemX* ctx)
@@ -403,29 +300,6 @@ State* Suspended::Instance()
 	return inst_;
 }
 
-void Suspended::EntryAction(EmbeddedSystemX* ctx)
-{
-	//None
-	std::cout << "For simulation purposes, choose your action" << std::endl;
-	std::cout << "To stop type: S, to resume type: M, to restart type: R " << std::endl;
-	char field;
-	std::cin >> field;
-	switch (field)
-	{
-	case 'S':
-		this->Stop(ctx);
-		break;
-	case 'M':
-		this->Resume(ctx);
-		break;
-	case 'R':
-		this->Restart(ctx);
-		break;
-	default:
-		this->EntryAction(ctx);
-		break;
-	}
-}
 
 const char* Suspended::stateName()
 {
@@ -485,6 +359,7 @@ void Ready::Start(EmbeddedSystemX* ctx)
 
 void Ready::Restart(EmbeddedSystemX* ctx)
 {
+	std::cout << "Restarting system" << std::endl;
 	ChangeState(ctx, PowerOnSelfTest::Instance());
 }
 
@@ -564,6 +439,7 @@ void PowerOnSelfTest::SystemSelfTest(EmbeddedSystemX* ctx)
 
 void PowerOnSelfTest::SelfTestOk(EmbeddedSystemX* ctx)
 {
+	std::cout << "Self test succesful" << std::endl;
 	ChangeState(ctx, Initializing::Instance());
 }
 

@@ -110,7 +110,6 @@ public:
 
 	static State* Instance();
 
-	void EntryAction(EmbeddedSystemX*);
 	const char* stateName();
 	void Stop(EmbeddedSystemX*) override;
 	void Resume(EmbeddedSystemX*) override;

@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 class State;
-class mode;
 
 class EmbeddedSystemX {
 public:
@@ -33,7 +32,6 @@ protected:
 
 private:
   State* state_;
-  mode* mode;
 	int VersionNo_;
 	char* Name_;
 	EmbeddedSystemX* ctx_;

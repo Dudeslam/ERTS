@@ -48,6 +48,9 @@ void run(EmbeddedSystemX* emx, int notexit)
 	case 'c':
 		emx->chMode();
 		break;
+	case 'r':
+		emx->Resume();
+		break;
 	case 'x':
 		emx->ConfigX();
 		break;
