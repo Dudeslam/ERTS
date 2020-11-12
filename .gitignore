@@ -8,6 +8,7 @@
 *.[oa]
 *.Plo
 *.so
+*.zip
 
 
 # ignore autoconf files
