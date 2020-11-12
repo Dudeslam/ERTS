@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include "EmbeddedSystemX.h"
 
+
 void run(EmbeddedSystemX*, int);
 
 int main()
@@ -24,36 +25,36 @@ int main()
 
 void run(EmbeddedSystemX* emx, int notexit)
 {
-	std::cout << "Choose which events to call: co (Configure), su (Suspend), st (start), stop (stop), r (resume), R (Restart), ch (chMode), Cx (ConfigX), Ex (eventX), Ey (eventY)" << std::endl;
+	std::cout << "Choose which events to call: C (Configure), S (Suspend), T (start), s (stop), r (resume), R (Restart), c (chMode), x (ConfigX), X (eventX), Y (eventY)" << std::endl;
 	char field;
 	std::cin >> field;
 	switch (field)
 	{
-	case 'co':
+	case 'C':
 		emx->Configure();
 		break;
-	case 'su':
+	case 'S':
 		emx->Suspend();
 		break;
-	case 'st':
+	case 'T':
 		emx->Start();
 		break;
-	case 'stop':
+	case 's':
 		emx->Stop();
 		break;
 	case 'R':
 		emx->Restart();
 		break;
-	case 'ch':
+	case 'c':
 		emx->chMode();
 		break;
-	case 'Cx':
+	case 'x':
 		emx->ConfigX();
 		break;
-	case 'Ex':
+	case 'X':
 		emx->eventX();
 		break;
-	case 'Ey':
+	case 'Y':
 		emx->eventY();
 		break;
 	default:
