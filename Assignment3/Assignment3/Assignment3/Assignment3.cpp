@@ -15,7 +15,7 @@ int main()
 	while(notexit)
 	{
 		Sleep(2000);
-		std::cout << "hey" << std::endl;
+		//std::cout << "hey" << std::endl;
 		// Maybe just a text interface here, where we ask the user which events to call and then call events like so:
 		emx->Start();
 	}

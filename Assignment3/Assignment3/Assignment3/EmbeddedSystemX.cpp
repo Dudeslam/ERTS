@@ -86,5 +86,6 @@ void EmbeddedSystemX::ChangeState(State* s)
 		state_ = s;
 	}
 	std::cout << "Entering state: " << state_->stateName() << std::endl;
+	std::cout << std::endl;
 	state_->EntryAction(this);
 }
