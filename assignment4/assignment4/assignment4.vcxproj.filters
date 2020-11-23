@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\stateMachine">
+      <UniqueIdentifier>{5d582b9d-0212-4f5b-9906-c821dfd87aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\commandPattern">
+      <UniqueIdentifier>{e3baaa9f-2e47-4a31-837e-7c9bf0c11b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stateMachine">
+      <UniqueIdentifier>{8008420a-6e33-4292-a592-eb6cd7672eb2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="assignment4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteStates.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="operational.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="realTimeLoop.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedSystemX.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stmTest.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteStates.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedSystemX.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="operational.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="realTimeLoop.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="invoker.h">
+      <Filter>Header Files\commandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="handleCommands.h">
+      <Filter>Header Files\commandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommands.h">
+      <Filter>Header Files\commandPattern</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
