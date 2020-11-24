@@ -8,7 +8,7 @@ class State;
 
 class EmbeddedSystemX {
 public:
-	EmbeddedSystemX(char* name, int versNo);
+	EmbeddedSystemX(const char* name, int versNo);
 
 	void SelfTestOk();
 	void Initialized();
@@ -33,7 +33,7 @@ protected:
 private:
   State* state_;
 	int VersionNo_;
-	char* Name_;
+	const char* Name_;
 	EmbeddedSystemX* ctx_;
 };
 

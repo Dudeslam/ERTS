@@ -1,8 +1,4 @@
-#ifndef STATE_H_
-#define STATE_H_
-#include <string>
-#include <iostream>
-
+#pragma once
 
 class EmbeddedSystemX;
 
@@ -32,5 +28,3 @@ protected:
   void ChangeState(EmbeddedSystemX* t, State* s);
 	
 };
-
-#endif /* STATE_H_ */

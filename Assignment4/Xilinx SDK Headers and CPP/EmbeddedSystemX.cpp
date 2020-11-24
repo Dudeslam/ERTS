@@ -1,9 +1,10 @@
 #include "EmbeddedSystemX.h"
 #include "State.h"
 #include "ConcreteStates.h"
+#include <iostream>
+#include <string>
 
-EmbeddedSystemX::EmbeddedSystemX(char* name, int versNo)
-{
+EmbeddedSystemX::EmbeddedSystemX(const char* name, int versNo){
 	std::cout << "EmbeddedSystemX has been instantiatied. Entering initial state 'PowerOnSelfTest. " << std::endl;
 
 	this->ChangeState(PowerOnSelfTest::Instance());
@@ -11,71 +12,56 @@ EmbeddedSystemX::EmbeddedSystemX(char* name, int versNo)
 	VersionNo_ = versNo;
 }
 
-void EmbeddedSystemX::SelfTestOk()
-{
+
+void EmbeddedSystemX::SelfTestOk(){
 	state_->SelfTestOk(this);
 }
 
-void EmbeddedSystemX::Initialized()
-{
+void EmbeddedSystemX::Initialized(){
 	state_->Initialized(this);
 }
 
-void EmbeddedSystemX::Restart()
-{
+void EmbeddedSystemX::Restart(){
 	state_->Restart(this);
 }
-void EmbeddedSystemX::Configure()
-{
+void EmbeddedSystemX::Configure(){
 	state_->Configure(this);
 }
-void EmbeddedSystemX::ConfigurationEnded()
-{
+void EmbeddedSystemX::ConfigurationEnded(){
 	state_->ConfigurationEnded(this);
 }
-void EmbeddedSystemX::Exit()
-{
+void EmbeddedSystemX::Exit(){
 	state_->Exit(this);
 }
-void EmbeddedSystemX::Stop()
-{
+void EmbeddedSystemX::Stop(){
 	state_->Stop(this);
 }
-void EmbeddedSystemX::Start()
-{
+void EmbeddedSystemX::Start(){
 	state_->Start(this);
 }
-void EmbeddedSystemX::Suspend()
-{
+void EmbeddedSystemX::Suspend(){
 	state_->Suspend(this);
 }
-void EmbeddedSystemX::Resume()
-{
+void EmbeddedSystemX::Resume(){
 	state_->Resume(this);
 }
-void EmbeddedSystemX::SelfTestFailed(int ErrorNo)
-{
+void EmbeddedSystemX::SelfTestFailed(int ErrorNo){
 	state_->SelfTestFailed(this, ErrorNo);
 }
-void EmbeddedSystemX::ConfigX()
-{
+void EmbeddedSystemX::ConfigX(){
 	state_->ConfigX(this);
 }
-void EmbeddedSystemX::chMode()
-{
+void EmbeddedSystemX::chMode(){
 	state_->chMode(this);
 }
-void EmbeddedSystemX::eventX()
-{
+void EmbeddedSystemX::eventX(){
 	state_->eventX(this);
 }
-void EmbeddedSystemX::eventY()
-{
+void EmbeddedSystemX::eventY(){
 	state_->eventY(this);
 }
 
-void EmbeddedSystemX::ChangeState(State* s)
-{
+void EmbeddedSystemX::ChangeState(State* s){
 	//only prints leaving state if it is in a state, otherwise it only enters a state
 	if (state_ != s)
 	{

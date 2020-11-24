@@ -1,25 +1,25 @@
-// Assignment3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#pragma once
 #include <iostream>
-#include <Windows.h>
+#include <sleep.h>
 #include "EmbeddedSystemX.h"
 
 
 void run(EmbeddedSystemX*, int);
+int test();
 
-int main()
+
+int test()
 {
-  char name[] = "Test";
-  EmbeddedSystemX* emx = new EmbeddedSystemX(name, 1);
+	char name[] = "Test";
+	EmbeddedSystemX* emx = new EmbeddedSystemX(name, 1);
 	int notexit = 1;
-	while(notexit)
+	while (notexit)
 	{
-		Sleep(2000);
+		usleep(2000);
 		run(emx, notexit);
 	}
-	
-  return 0;
+
+	return 0;
 }
 
 
