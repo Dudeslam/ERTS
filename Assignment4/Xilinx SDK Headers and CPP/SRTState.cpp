@@ -1,9 +1,3 @@
-/*
- * SRTState.c
- *
- *  Created on: 24. nov. 2020
- *      Author: Trung
- */
 #include "SRTState.h"
 #include "SimulateRealTimeState.h"
 #include <iostream>
@@ -21,6 +15,16 @@ void SRTState::RunRealTime(SimulateRealTimeState*)
 }
 
 void SRTState::Simulate(SimulateRealTimeState*)
+{
+	std::cout << "Invalid input" << std::endl;
+}
+
+void SRTState::Stop(SimulateRealTimeState*)
+{
+	std::cout << "Invalid input" << std::endl;
+}
+
+void SRTState::Suspend(SimulateRealTimeState*)
 {
 	std::cout << "Invalid input" << std::endl;
 }

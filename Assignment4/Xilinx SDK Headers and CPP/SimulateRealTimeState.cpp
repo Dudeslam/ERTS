@@ -6,7 +6,7 @@
  */
 
 #include "SimulateRealTimeState.h"
-//#include "realTimeLoop.h"
+#include "realTimeLoop.h"
 
 SimulateRealTimeState::SimulateRealTimeState(char name)
 {

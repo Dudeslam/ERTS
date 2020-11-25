@@ -1,3 +1,6 @@
+#ifndef SRC_SIMULATEREALTIMESTACE_H_
+#define SRC_SIMULATEREALTIMESTACE_H_
+
 #include <iostream>
 #include <stdlib.h>
 #include "SRTState.h"
@@ -21,3 +24,4 @@ private:
 	char name_;
 	SRTState* state_;
 };
+#endif /* SRC_SIMULATEREALTIMESTACE_H_ */

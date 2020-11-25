@@ -1,15 +1,18 @@
 #pragma once
+
+
 #include "State.h"
 #include "EmbeddedSystemX.h"
 #include "operational.h"
 #include "SimulateRealTimeState.h"
+#include "SRTState.h"
 
 
 
 class RealTimeLoop : public Operational {
 public:
 	// Global
-
+	static State* Instance();
 	virtual void Stop(EmbeddedSystemX*);
 	virtual void Suspend(EmbeddedSystemX*);
 
@@ -23,7 +26,8 @@ public:
 
 	virtual void EntryAction(EmbeddedSystemX*) {};
 	virtual const char* stateName() { return "None"; };
-
+private:
+	static State* inst_;
 protected:
 	void ChangeState(EmbeddedSystemX* t, State* s) { t->ChangeState(s); };
 };
@@ -89,6 +93,7 @@ private:
 
 class Simulation : public SRTState
 {
+public:
 	static SRTState* Instance();
 	void RunRealTime(SimulateRealTimeState*) override;
 	void Stop(SimulateRealTimeState*) override;
@@ -101,6 +106,7 @@ private:
 
 class RealTimeExecution : public SRTState
 {
+public:
 	static SRTState* Instance();
 	void Simulate(SimulateRealTimeState*) override;
 	void Stop(SimulateRealTimeState*) override;

@@ -5,11 +5,15 @@ class SimulateRealTimeState;
 
 class SRTState {
 public:
-	SRTState();
+
+
 	virtual void RunRealTime(SimulateRealTimeState*);
 	virtual void Simulate(SimulateRealTimeState*);
-	virtual const char* stateName(){ return "None";}
+	virtual void Stop(SimulateRealTimeState*);
+	virtual void Suspend(SimulateRealTimeState*);
+
 	virtual void EntryAction(SimulateRealTimeState*);
+	virtual const char* stateName(){ return "None";}
 protected:
 	 void ChangeState(SimulateRealTimeState* t, SRTState* s);
 };

@@ -5,6 +5,8 @@
 
 
 // RealTimeLoop
+State* RealTimeLoop::inst_ = 0;
+
 void RealTimeLoop::Stop(EmbeddedSystemX* ctx) {
 	std::cout << "Stopping real time loop" << std::endl;
 	ChangeState(ctx, Ready::Instance());
@@ -15,6 +17,13 @@ void RealTimeLoop::Suspend(EmbeddedSystemX* ctx) {
 	ChangeState(ctx, Suspended::Instance());
 }
 
+
+State* RealTimeLoop::Instance(){
+	if (inst_ == 0) {
+		inst_ = new RealTimeLoop;
+	}
+	return inst_;
+}
 
 
 
@@ -131,6 +140,14 @@ void Mode3::responseM3eventX(){
 	std::cout << "Responding to event X in Mode 3" << std::endl;
 }
 
+SRTState* Simulation::inst_ = 0;
+
+SRTState* Simulation::Instance(){
+	if (inst_ == 0) {
+		inst_ = new Simulation;
+	}
+	return inst_;
+}
 
 void Simulation::RunRealTime(SimulateRealTimeState* SRTctx)
 {
@@ -148,10 +165,19 @@ void Simulation::Suspend(SimulateRealTimeState* SRTctx)
 }
 
 
+SRTState* RealTimeExecution::inst_ = 0;
+
+SRTState* RealTimeExecution::Instance(){
+	if (inst_ == 0) {
+		inst_ = new RealTimeExecution;
+	}
+	return inst_;
+}
+
 
 void RealTimeExecution::Simulate(SimulateRealTimeState* SRTctx)
 {
-	ChangeState(SRTctx, Simulate::Instance());
+	ChangeState(SRTctx, Simulation::Instance());
 }
 
 void RealTimeExecution::Stop(SimulateRealTimeState* SRTctx)

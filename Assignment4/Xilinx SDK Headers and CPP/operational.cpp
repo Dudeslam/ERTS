@@ -1,7 +1,7 @@
 #include "operational.h"
 #include <iostream>
 #include <sleep.h>	// for sleep
-
+#include "realTimeLoop.h"
 
 
 
@@ -40,7 +40,7 @@ void Ready::Configure(EmbeddedSystemX* ctx){
 
 void Ready::Start(EmbeddedSystemX* ctx){
 	std::cout << "Running Real Time Loop" << std::endl;
-	ChangeState(ctx, Mode1::Instance());
+	ChangeState(ctx, RealTimeLoop::Instance());
 }
 
 
