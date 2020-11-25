@@ -25,6 +25,8 @@ public:
 	void chMode();
 	void eventX();
 	void eventY();
+	void Simulate();
+	void RunRealTime();
 	void ChangeState(State* s);
 
 protected:

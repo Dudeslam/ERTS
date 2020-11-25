@@ -22,6 +22,8 @@ void State::ConfigX(EmbeddedSystemX*) { std::cout << "Invalid input" << std::end
 void State::chMode(EmbeddedSystemX*) { std::cout << "Invalid input" << std::endl; };
 void State::eventX(EmbeddedSystemX*) { std::cout << "Invalid input" << std::endl; };
 void State::eventY(EmbeddedSystemX*) { std::cout << "Invalid input" << std::endl; };
+void State::Simulate(EmbeddedSystemX*) {std::cout << "Invalid input" << std::endl; };
+void State::RunRealTime(EmbeddedSystemX*) {std::cout << "Invalid input" << std::endl;};
 
 void State::EntryAction(EmbeddedSystemX*){}
 const char* State::stateName()

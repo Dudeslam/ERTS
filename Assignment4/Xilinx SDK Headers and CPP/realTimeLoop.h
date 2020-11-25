@@ -2,11 +2,14 @@
 #include "State.h"
 #include "EmbeddedSystemX.h"
 #include "operational.h"
+#include "SimulateRealTimeState.h"
 
 
-class RealTimeLoop : public State {
+
+class RealTimeLoop : public Operational {
 public:
 	// Global
+
 	virtual void Stop(EmbeddedSystemX*);
 	virtual void Suspend(EmbeddedSystemX*);
 
@@ -15,16 +18,15 @@ public:
 	virtual void eventX(EmbeddedSystemX*) {};
 	virtual void eventY(EmbeddedSystemX*) {};
 
+	virtual void RunRealTime(EmbeddedSystemX*) {};
+	virtual void Simulate(EmbeddedSystemX*) {};
+
 	virtual void EntryAction(EmbeddedSystemX*) {};
 	virtual const char* stateName() { return "None"; };
 
 protected:
 	void ChangeState(EmbeddedSystemX* t, State* s) { t->ChangeState(s); };
 };
-
-
-
-
 
 
 
@@ -85,4 +87,25 @@ private:
 };
 
 
+class Simulation : public SRTState
+{
+	static SRTState* Instance();
+	void RunRealTime(SimulateRealTimeState*) override;
+	void Stop(SimulateRealTimeState*) override;
+	void Suspend(SimulateRealTimeState*) override;
+private:
+	static SRTState* inst_;
 
+};
+
+
+class RealTimeExecution : public SRTState
+{
+	static SRTState* Instance();
+	void Simulate(SimulateRealTimeState*) override;
+	void Stop(SimulateRealTimeState*) override;
+	void Suspend(SimulateRealTimeState*) override;
+private:
+	static SRTState* inst_;
+
+};

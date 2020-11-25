@@ -61,6 +61,14 @@ void EmbeddedSystemX::eventY(){
 	state_->eventY(this);
 }
 
+void EmbeddedSystemX::Simulate(){
+	state_->Simulate(this);
+}
+
+void EmbeddedSystemX::RunRealTime(){
+	state_->RunRealTime(this);
+}
+
 void EmbeddedSystemX::ChangeState(State* s){
 	//only prints leaving state if it is in a state, otherwise it only enters a state
 	if (state_ != s)

@@ -130,3 +130,37 @@ void Mode3::eventX(EmbeddedSystemX* ctx){
 void Mode3::responseM3eventX(){
 	std::cout << "Responding to event X in Mode 3" << std::endl;
 }
+
+
+void Simulation::RunRealTime(SimulateRealTimeState* SRTctx)
+{
+	ChangeState(SRTctx, RealTimeExecution::Instance());
+}
+
+void Simulation::Stop(SimulateRealTimeState* SRTctx)
+{
+
+}
+
+void Simulation::Suspend(SimulateRealTimeState* SRTctx)
+{
+
+}
+
+
+
+void RealTimeExecution::Simulate(SimulateRealTimeState* SRTctx)
+{
+	ChangeState(SRTctx, Simulate::Instance());
+}
+
+void RealTimeExecution::Stop(SimulateRealTimeState* SRTctx)
+{
+
+}
+
+void RealTimeExecution::Suspend(SimulateRealTimeState* SRTctx)
+{
+
+}
+

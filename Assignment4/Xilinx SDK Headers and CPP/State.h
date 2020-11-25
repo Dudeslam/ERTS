@@ -20,6 +20,8 @@ public:
   virtual void chMode(EmbeddedSystemX*);
   virtual void eventX(EmbeddedSystemX*);
   virtual void eventY(EmbeddedSystemX*);
+  virtual void RunRealTime(EmbeddedSystemX*);
+  virtual void Simulate(EmbeddedSystemX*);
 
   virtual void EntryAction(EmbeddedSystemX*);
   virtual const char* stateName();
