@@ -22,6 +22,12 @@
     <Filter Include="Source Files\stateMachine">
       <UniqueIdentifier>{8008420a-6e33-4292-a592-eb6cd7672eb2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ActiveObject">
+      <UniqueIdentifier>{d0aa8ca5-79ba-4dd0-8ef4-60f2cee5e57f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActiveObject">
+      <UniqueIdentifier>{b7baf198-f13e-4990-b579-61e7ba7f36b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="assignment4.cpp">
@@ -30,46 +36,88 @@
     <ClCompile Include="ConcreteStates.cpp">
       <Filter>Source Files\stateMachine</Filter>
     </ClCompile>
-    <ClCompile Include="operational.cpp">
-      <Filter>Source Files\stateMachine</Filter>
-    </ClCompile>
-    <ClCompile Include="realTimeLoop.cpp">
-      <Filter>Source Files\stateMachine</Filter>
-    </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>Source Files\stateMachine</Filter>
     </ClCompile>
     <ClCompile Include="EmbeddedSystemX.cpp">
       <Filter>Source Files\stateMachine</Filter>
     </ClCompile>
+    <ClCompile Include="Operational.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="RealTimeLoop.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="SimCount.cpp">
+      <Filter>Source Files\ActiveObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SRTctx.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="AMSctx.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="SRTState.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="AMSState.cpp">
+      <Filter>Source Files\stateMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stmTest.h">
-      <Filter>Header Files\stateMachine</Filter>
-    </ClInclude>
     <ClInclude Include="ConcreteStates.h">
       <Filter>Header Files\stateMachine</Filter>
     </ClInclude>
     <ClInclude Include="EmbeddedSystemX.h">
       <Filter>Header Files\stateMachine</Filter>
     </ClInclude>
-    <ClInclude Include="operational.h">
-      <Filter>Header Files\stateMachine</Filter>
-    </ClInclude>
-    <ClInclude Include="realTimeLoop.h">
-      <Filter>Header Files\stateMachine</Filter>
-    </ClInclude>
     <ClInclude Include="State.h">
       <Filter>Header Files\stateMachine</Filter>
-    </ClInclude>
-    <ClInclude Include="invoker.h">
-      <Filter>Header Files\commandPattern</Filter>
     </ClInclude>
     <ClInclude Include="handleCommands.h">
       <Filter>Header Files\commandPattern</Filter>
     </ClInclude>
     <ClInclude Include="ICommands.h">
       <Filter>Header Files\commandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Invoker.h">
+      <Filter>Header Files\commandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="StmTest.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="Operational.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="RealTimeLoop.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulateProxy.h">
+      <Filter>Header Files\ActiveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulateScheduler.h">
+      <Filter>Header Files\ActiveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulateServant.h">
+      <Filter>Header Files\ActiveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimCount.h">
+      <Filter>Header Files\ActiveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MethodRequest.h">
+      <Filter>Header Files\ActiveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AMSctx.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="SRTctx.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="SRTState.h">
+      <Filter>Header Files\stateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="AMSState.h">
+      <Filter>Header Files\stateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

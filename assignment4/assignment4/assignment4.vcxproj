@@ -99,13 +99,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,23 +154,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AMSctx.cpp" />
+    <ClCompile Include="AMSState.cpp" />
     <ClCompile Include="assignment4.cpp" />
     <ClCompile Include="ConcreteStates.cpp" />
     <ClCompile Include="EmbeddedSystemX.cpp" />
-    <ClCompile Include="operational.cpp" />
-    <ClCompile Include="realTimeLoop.cpp" />
+    <ClCompile Include="Operational.cpp" />
+    <ClCompile Include="RealTimeLoop.cpp" />
+    <ClCompile Include="SimCount.cpp" />
+    <ClCompile Include="SRTctx.cpp" />
+    <ClCompile Include="SRTState.cpp" />
     <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AMSctx.h" />
+    <ClInclude Include="AMSState.h" />
     <ClInclude Include="ConcreteStates.h" />
     <ClInclude Include="EmbeddedSystemX.h" />
     <ClInclude Include="handleCommands.h" />
     <ClInclude Include="ICommands.h" />
-    <ClInclude Include="invoker.h" />
-    <ClInclude Include="operational.h" />
-    <ClInclude Include="realTimeLoop.h" />
+    <ClInclude Include="Invoker.h" />
+    <ClInclude Include="MethodRequest.h" />
+    <ClInclude Include="Operational.h" />
+    <ClInclude Include="RealTimeLoop.h" />
+    <ClInclude Include="SimCount.h" />
+    <ClInclude Include="SimulateProxy.h" />
+    <ClInclude Include="SimulateScheduler.h" />
+    <ClInclude Include="SimulateServant.h" />
+    <ClInclude Include="SRTctx.h" />
+    <ClInclude Include="SRTState.h" />
     <ClInclude Include="State.h" />
-    <ClInclude Include="stmTest.h" />
+    <ClInclude Include="StmTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

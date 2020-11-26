@@ -3,9 +3,6 @@
 #include <string>
 
 
-
-
-
 class handleCommands
 {
 public:
@@ -17,10 +14,6 @@ public:
 	~handleCommands() {
 		//std::cout << __FUNCTION__ << std::endl;
 	};
-
-
-
-
 
 	// Handle every command = map to STM
 	void cmdSelfTestOk() {
@@ -97,9 +90,17 @@ public:
 		std::cout << __FUNCTION__ << std::endl;
 		emx_->eventY();
 	};
+
+	void cmdSimulate() {
+		std::cout << __FUNCTION__ << std::endl;
+		emx_->Simulate();
+	};
+
+	void cmdRunRealTime() {
+		std::cout << __FUNCTION__ << std::endl;
+		emx_->RunRealTime();
+	};
 	
-
-
 private:
 	EmbeddedSystemX* emx_;
 };

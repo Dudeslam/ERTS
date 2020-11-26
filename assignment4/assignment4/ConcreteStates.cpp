@@ -1,7 +1,7 @@
 #include "ConcreteStates.h"
 #include <iostream>
 #include <windows.h>	// for sleep
-#include "operational.h"
+#include "Operational.h"
 
 
 
@@ -53,12 +53,6 @@ void Failure::Restart(EmbeddedSystemX* ctx){
 	std::cout << "Restarting program" << std::endl;
 	ChangeState(ctx, PowerOnSelfTest::Instance());
 }
-
-
-
-
-
-
 
 
 //init functions

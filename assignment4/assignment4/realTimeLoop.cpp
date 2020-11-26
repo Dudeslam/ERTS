@@ -1,12 +1,29 @@
-#include "realTimeLoop.h"
+#include "RealTimeLoop.h"
 #include <iostream>
-#include <windows.h>	// for sleep
-
-
+#include <Windows.h>
 
 // RealTimeLoop
+State* RealTimeLoop::inst_ = 0;
+
+State* RealTimeLoop::Instance() {
+	if (inst_ == 0) {
+		inst_ = new RealTimeLoop;
+	}
+	return inst_;
+}
+void RealTimeLoop::EntryAction(EmbeddedSystemX*)
+{
+	if (!srtctx_ && !amsctx_)
+	{
+		srtctx_ = new SRTctx();
+		amsctx_ = new AMSctx();
+	}
+}
+
 void RealTimeLoop::Stop(EmbeddedSystemX* ctx) {
 	std::cout << "Stopping real time loop" << std::endl;
+	delete srtctx_;
+	delete amsctx_;
 	ChangeState(ctx, Ready::Instance());
 }
 
@@ -15,118 +32,29 @@ void RealTimeLoop::Suspend(EmbeddedSystemX* ctx) {
 	ChangeState(ctx, Suspended::Instance());
 }
 
-
-
-
-
-
-
-//mode1 functions
-State* Mode1::inst_ = 0;
-
-State* Mode1::Instance(){
-	if (inst_ == 0) {
-		inst_ = new Mode1;
-	}
-	return inst_;
+void RealTimeLoop::chMode(EmbeddedSystemX* ctx)
+{
+	amsctx_->chMode();
+}
+void RealTimeLoop::eventX(EmbeddedSystemX* ctx)
+{
+	amsctx_->eventX();
+}
+void RealTimeLoop::eventY(EmbeddedSystemX* ctx)
+{
+	amsctx_->eventY();
+}
+void RealTimeLoop::RunRealTime(EmbeddedSystemX* ctx)
+{
+	srtctx_->RunRealTime();
+}
+void RealTimeLoop::Simulate(EmbeddedSystemX* ctx)
+{
+	srtctx_->Simulate();
 }
 
-
-const char* Mode1::stateName(){
-	return "Mode1";
+const char* RealTimeLoop::stateName()
+{
+	return "Real Time Loop";
 }
 
-void Mode1::chMode(EmbeddedSystemX* ctx){
-	std::cout << "Changing mode" << std::endl;
-	ChangeState(ctx, Mode2::Instance());
-}
-
-void Mode1::eventX(EmbeddedSystemX* ctx){
-	std::cout << "Got event X" << std::endl;
-	this->responseM1eventX();
-}
-
-void Mode1::responseM1eventX(){
-	std::cout << "Responding to event X in Mode 1" << std::endl;
-	Sleep(100);
-}
-
-
-
-
-
-//mode2 functions
-State* Mode2::inst_ = 0;
-
-State* Mode2::Instance(){
-	if (inst_ == 0) {
-		inst_ = new Mode2;
-	}
-	return inst_;
-}
-
-
-
-const char* Mode2::stateName(){
-	return "Mode2";
-}
-
-void Mode2::chMode(EmbeddedSystemX* ctx){
-	std::cout << "Changing mode" << std::endl;
-	ChangeState(ctx, Mode3::Instance());
-}
-
-void Mode2::eventY(EmbeddedSystemX* ctx){
-	std::cout << "Got event Y" << std::endl;
-	this->responseM2eventY();
-}
-
-void Mode2::eventX(EmbeddedSystemX* ctx){
-	std::cout << "Got event X" << std::endl;
-	this->responseM2eventX();
-
-}
-
-void Mode2::responseM2eventX(){
-	std::cout << "Responding to event X in Mode 2" << std::endl;
-}
-
-void Mode2::responseM2eventY(){
-	std::cout << "Responding to event Y in Mode 2" << std::endl;
-}
-
-
-
-
-
-//mode3 functions
-State* Mode3::inst_ = 0;
-
-State* Mode3::Instance(){
-	if (inst_ == 0) {
-		inst_ = new Mode3;
-	}
-	return inst_;
-}
-
-const char* Mode3::stateName(){
-	return "Mode3";
-}
-
-//void Mode3::EntryAction(EmbeddedSystemX* ctx){
-//	this->eventX(ctx);
-//}
-
-void Mode3::chMode(EmbeddedSystemX* ctx){
-	std::cout << "Changing mode" << std::endl;
-	ChangeState(ctx, Mode1::Instance());
-}
-
-void Mode3::eventX(EmbeddedSystemX* ctx){
-	std::cout << "Got event X" << std::endl;
-	this->responseM3eventX();
-}
-
-void Mode3::responseM3eventX(){
-	std::cout << "Responding to event X in Mode 3" << std::endl;
-}

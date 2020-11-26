@@ -1,19 +1,15 @@
-#include "operational.h"
+#include "Operational.h"
+#include "ConcreteStates.h"
+#include "RealTimeLoop.h"
 #include <iostream>
 #include <windows.h>	// for sleep
-
-
 
 
 // Implementation Operational
 void Operational::Restart(EmbeddedSystemX* ctx) {
 	std::cout << "Restarting system" << std::endl;
-	ChangeState(ctx, Configuration::Instance());
+	ChangeState(ctx, PowerOnSelfTest::Instance());
 }
-
-
-
-
 
 //ready functions
 State* Ready::inst_ = 0;
@@ -29,22 +25,14 @@ const char* Ready::stateName(){
 	return "Ready";
 }
 
-//void Ready::EntryAction(EmbeddedSystemX* ctx)
-//{
-//	this->Configure(ctx);
-//}
-
 void Ready::Configure(EmbeddedSystemX* ctx){
 	ChangeState(ctx, Configuration::Instance());
 }
 
 void Ready::Start(EmbeddedSystemX* ctx){
 	std::cout << "Running Real Time Loop" << std::endl;
-	ChangeState(ctx, Mode1::Instance());
+	ChangeState(ctx, RealTimeLoop::Instance());
 }
-
-
-
 
 
 //config Functions
@@ -80,7 +68,6 @@ void Configuration::Configure(EmbeddedSystemX* ctx){
 	this->ConfigurationEnded(ctx);
 }
 
-
 void Configuration::ReadConfigurationInfo(){
 	std::cout << "Reading configurations" << std::endl;
 }
@@ -88,12 +75,6 @@ void Configuration::ReadConfigurationInfo(){
 void Configuration::PerformConfigurationX(){
 	std::cout << "Performing Configuration X" << std::endl;
 }
-
-
-
-
-
-
 
 
 //Suspended functions
@@ -106,7 +87,6 @@ State* Suspended::Instance(){
 	return inst_;
 }
 
-
 const char* Suspended::stateName(){
 	return "Suspended";
 }
@@ -118,5 +98,5 @@ void Suspended::Stop(EmbeddedSystemX* ctx){
 
 void Suspended::Resume(EmbeddedSystemX* ctx){
 	std::cout << "Resuming Real Time loop" << std::endl;
-	ChangeState(ctx, Mode1::Instance());
+	ChangeState(ctx, RealTimeLoop::Instance());
 }

@@ -2,7 +2,6 @@
 #include <iostream>
 
 
-
 class ICommands
 {
 public:
@@ -14,17 +13,14 @@ protected:
 };
 
 
-
-
-
 template <typename T>
 class CommandBasic : public ICommands {
 public:
 	// Action is a function pointer to T (template type)
-	typedef void (T:: *Action)();
+	typedef void (T::* Action)();
 
 	// Constructor
-	CommandBasic(T *receiver, Action action)
+	CommandBasic(T* receiver, Action action)
 		: _receiver(receiver), _action(action) {
 		//std::cout << __FUNCTION__ << std::endl;
 	}

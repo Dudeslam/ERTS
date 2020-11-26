@@ -5,7 +5,6 @@
 #include <Windows.h>
 
 
-
 class Invoker
 {
 public:
@@ -16,7 +15,6 @@ public:
 		std::cout << __FUNCTION__ << std::endl;
 		_vectorOfCommands.push_back(command);
 	};
-
 
 	void executeVectorOfCommands() const {
 		std::cout << __FUNCTION__ << std::endl;
