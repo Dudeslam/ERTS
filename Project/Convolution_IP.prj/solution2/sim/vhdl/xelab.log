@@ -1,0 +1,41 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_conv_3x3_strm_top glbl -prj conv_3x3_strm.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims --initfile C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s conv_3x3_strm 
+Multi-threading is on. Using 10 slave threads.
+Determining compilation order of HDL files.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/AESL_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/AESL_autofifo_in_stream_V.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AESL_autofifo_in_stream_V
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/AESL_autofifo_out_stream_V.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AESL_autofifo_out_stream_V
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/conv_3x3_strm.autotb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity apatb_conv_3x3_strm_top
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/conv_3x3_strm.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity conv_3x3_strm
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/vhdl/conv_3x3_strm_linbkb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity conv_3x3_strm_linbkb_ram
+INFO: [VRFC 10-307] analyzing entity conv_3x3_strm_linbkb
+Starting static elaboration
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/xhdhdnobkup2/mounicav/xsimsource/xsim_HEAD/data/vhdl/src/ieee_2008/numeric_std-body.vhdl:3476]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling module work.glbl
+Compiling architecture rtl of entity xil_defaultlib.conv_3x3_strm_linbkb_ram [\conv_3x3_strm_linbkb_ram(1,5)\]
+Compiling architecture arch of entity xil_defaultlib.conv_3x3_strm_linbkb [conv_3x3_strm_linbkb_default]
+Compiling architecture behav of entity xil_defaultlib.conv_3x3_strm [conv_3x3_strm_default]
+Compiling architecture behav of entity xil_defaultlib.AESL_autofifo_out_stream_V [aesl_autofifo_out_stream_v_defau...]
+Compiling architecture behav of entity xil_defaultlib.AESL_autofifo_in_stream_V [aesl_autofifo_in_stream_v_defaul...]
+Compiling architecture behav of entity xil_defaultlib.apatb_conv_3x3_strm_top
+Built simulation snapshot conv_3x3_strm

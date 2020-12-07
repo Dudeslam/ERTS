@@ -1,0 +1,120 @@
+
+
+================================================================
+== Vivado HLS Report for 'borders_ok'
+================================================================
+* Date:           Thu Dec  3 18:32:37 2020
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        Convolution_IP.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z010clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   8.00|      2.70|        1.00|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+ <State 1> : 2.70ns
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%x_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %x)"
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%y_read = call i9 @_ssdm_op_Read.ap_auto.i9(i9 %y)"
+ST_1 : Operation 4 [1/1] (1.77ns)   --->   "%tmp_1 = icmp sgt i10 %x_read, 0" [Convolution_IP.prj/conv_2d.cpp:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.66> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%tmp_2826 = call i2 @_ssdm_op_PartSelect.i2.i10.i32.i32(i10 %x_read, i32 8, i32 9)" [Convolution_IP.prj/conv_2d.cpp:19]
+ST_1 : Operation 6 [1/1] (0.95ns)   --->   "%icmp = icmp ne i2 %tmp_2826, 1" [Convolution_IP.prj/conv_2d.cpp:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.66> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 7 [1/1] (1.66ns)   --->   "%tmp = icmp sgt i9 %y_read, 0" [Convolution_IP.prj/conv_2d.cpp:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.66> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node p_s)   --->   "%tmp2 = and i1 %tmp_1, %icmp" [Convolution_IP.prj/conv_2d.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.93ns) (out node of the LUT)   --->   "%p_s = and i1 %tmp2, %tmp" [Convolution_IP.prj/conv_2d.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "ret i1 %p_s" [Convolution_IP.prj/conv_2d.cpp:20]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 8ns, clock uncertainty: 1ns.
+
+ <State 1>: 2.7ns
+The critical path consists of the following:
+	wire read on port 'x' [3]  (0 ns)
+	'icmp' operation ('tmp_1', Convolution_IP.prj/conv_2d.cpp:19) [5]  (1.77 ns)
+	'and' operation ('tmp2', Convolution_IP.prj/conv_2d.cpp:19) [9]  (0 ns)
+	'and' operation ('p_s', Convolution_IP.prj/conv_2d.cpp:19) [10]  (0.931 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

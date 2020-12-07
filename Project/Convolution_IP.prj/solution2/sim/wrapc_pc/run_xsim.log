@@ -1,0 +1,67 @@
+*** TEST PASSED ***
+
+C:\Users\Kristoffer\Documents\Embedded_Real_Time_Exercises\Project\Convolution_IP.prj\solution2\sim\verilog>call C:/Xilinx/Vivado/2017.4/bin/xelab xil_defaultlib.apatb_conv_3x3_strm_top glbl -prj conv_3x3_strm.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver --initfile "C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s conv_3x3_strm  
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_conv_3x3_strm_top glbl -prj conv_3x3_strm.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver --initfile C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s conv_3x3_strm 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/AESL_autofifo_in_stream_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_in_stream_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/AESL_autofifo_out_stream_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_out_stream_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_conv_3x3_strm_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_3x3_strm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm_linbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_3x3_strm_linbkb_ram
+INFO: [VRFC 10-311] analyzing module conv_3x3_strm_linbkb
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.conv_3x3_strm_linbkb_ram
+Compiling module xil_defaultlib.conv_3x3_strm_linbkb(DataWidth=8...
+Compiling module xil_defaultlib.conv_3x3_strm
+Compiling module xil_defaultlib.AESL_autofifo_out_stream_V
+Compiling module xil_defaultlib.AESL_autofifo_in_stream_V
+Compiling module xil_defaultlib.apatb_conv_3x3_strm_top
+Compiling module work.glbl
+Built simulation snapshot conv_3x3_strm
+
+****** Webtalk v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/xsim.dir/conv_3x3_strm/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Dec  3 19:25:27 2020...
+
+****** xsim v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/conv_3x3_strm/xsim_script.tcl
+# xsim {conv_3x3_strm} -autoloadwcfg -tclbatch {conv_3x3_strm.tcl}
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+source conv_3x3_strm.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "116000"
+// RTL Simulation : 1 / 1 [100.00%] @ "526564000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 526596 ns : File "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm.autotb.v" Line 274
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Dec  3 19:25:34 2020...
+*** TEST PASSED ***

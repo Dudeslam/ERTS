@@ -1,0 +1,85 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Thu Dec  3 19:32:15 2020
+| Host         : DESKTOP-4E9RQGN running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file conv_3x3_strm_control_sets_placed.rpt
+| Design       : conv_3x3_strm
+| Device       : xc7z010
+------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    19 |
+| Unused register locations in slices containing registers |    78 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              12 |            7 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              10 |            5 |
+| Yes          | No                    | No                     |             175 |           65 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              85 |           27 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------+--------------------------------------------------------------------+------------------------+------------------+----------------+
+| Clock Signal |                            Enable Signal                           |    Set/Reset Signal    | Slice Load Count | Bel Load Count |
++--------------+--------------------------------------------------------------------+------------------------+------------------+----------------+
+|  ap_clk      | line_buf_1_U/conv_3x3_strm_linbkb_ram_U/window_2_0_1_fu_158_reg[0] |                        |                3 |              8 |
+|  ap_clk      | icmp_reg_10930                                                     |                        |                4 |              9 |
+|  ap_clk      | x_2_reg_8970                                                       |                        |                5 |              9 |
+|  ap_clk      | x1_reg_264[8]_i_1_n_0                                              | ap_CS_fsm_state4       |                4 |              9 |
+|  ap_clk      | x_1_reg_8880                                                       |                        |                5 |              9 |
+|  ap_clk      | x_reg_252[8]_i_2_n_0                                               | x_reg_252              |                4 |              9 |
+|  ap_clk      |                                                                    | ap_rst                 |                5 |             10 |
+|  ap_clk      | result_2_2_reg_10820                                               |                        |                3 |             11 |
+|  ap_clk      |                                                                    |                        |                7 |             12 |
+|  ap_clk      | ap_reg_pp2_iter1_exitcond_flatten_reg_9980                         |                        |                7 |             12 |
+|  ap_clk      | brmerge_demorgan_i_0_2_reg_1038[0]_i_1_n_0                         |                        |                4 |             13 |
+|  ap_clk      | window_1_1_1_fu_138                                                |                        |                7 |             16 |
+|  ap_clk      | window_2_1_1_fu_150                                                |                        |                2 |             16 |
+|  ap_clk      | indvar_flatten_reg_2760                                            | indvar_flatten_reg_276 |                5 |             17 |
+|  ap_clk      | line_buf_0_U/conv_3x3_strm_linbkb_ram_U/E[0]                       | x_assign_reg_299       |                6 |             18 |
+|  ap_clk      | indvar_flatten_reg_2760                                            |                        |               10 |             18 |
+|  ap_clk      | brmerge_demorgan_i_1_reg_10610                                     |                        |                9 |             22 |
+|  ap_clk      | read_count_1_fu_1220                                               |                        |                6 |             32 |
+|  ap_clk      | read_count_1_fu_1220                                               | read_count_1_fu_122    |                8 |             32 |
++--------------+--------------------------------------------------------------------+------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 8      |                     1 |
+| 9      |                     5 |
+| 10     |                     1 |
+| 11     |                     1 |
+| 12     |                     2 |
+| 13     |                     1 |
+| 16+    |                     8 |
++--------+-----------------------+
+
+

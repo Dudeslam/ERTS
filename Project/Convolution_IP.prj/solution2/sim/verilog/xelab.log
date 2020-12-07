@@ -1,0 +1,31 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_conv_3x3_strm_top glbl -prj conv_3x3_strm.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver --initfile C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s conv_3x3_strm 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/AESL_autofifo_in_stream_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_in_stream_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/AESL_autofifo_out_stream_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_out_stream_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_conv_3x3_strm_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_3x3_strm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Kristoffer/Documents/Embedded_Real_Time_Exercises/Project/Convolution_IP.prj/solution2/sim/verilog/conv_3x3_strm_linbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_3x3_strm_linbkb_ram
+INFO: [VRFC 10-311] analyzing module conv_3x3_strm_linbkb
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.conv_3x3_strm_linbkb_ram
+Compiling module xil_defaultlib.conv_3x3_strm_linbkb(DataWidth=8...
+Compiling module xil_defaultlib.conv_3x3_strm
+Compiling module xil_defaultlib.AESL_autofifo_out_stream_V
+Compiling module xil_defaultlib.AESL_autofifo_in_stream_V
+Compiling module xil_defaultlib.apatb_conv_3x3_strm_top
+Compiling module work.glbl
+Built simulation snapshot conv_3x3_strm

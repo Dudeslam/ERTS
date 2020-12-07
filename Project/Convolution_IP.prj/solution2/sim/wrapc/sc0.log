@@ -1,0 +1,5 @@
+   Build using "C:/Xilinx/Vivado/2017.4/msys/bin/g++.exe"
+   Compiling apatb_conv_3x3_strm.cpp
+   Compiling conv_2d.cpp_pre.cpp.tb.cpp
+   Compiling conv_2d_testbench.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe

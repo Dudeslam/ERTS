@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="conv_2d.cpp" path="C:\Users\Kristoffer\Documents\Embedded_Real_Time_Exercises\Project\Convolution_IP.prj\conv_2d.cpp"/>
+    <originFiles name="conv_2d.h" path="C:\Users\Kristoffer\Documents\Embedded_Real_Time_Exercises\Project\Convolution_IP.prj\conv_2d.h"/>
+  </source>
+  <testbench>
+    <originFiles name="conv_2d_testbench.cpp" path="C:\Users\Kristoffer\Documents\Embedded_Real_Time_Exercises\Project\Convolution_IP.prj\conv_2d_testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
