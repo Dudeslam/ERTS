@@ -7,7 +7,7 @@
 class StratPat {
 public:
 	virtual ~StratPat() {};
-	virtual int Execute();
+	virtual int PerformFilter();
 
 private:
 };
